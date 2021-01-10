@@ -1,11 +1,10 @@
-import numpy as np
 import torch
 import math
 from torch import nn
 import torch.nn.functional as F
 from torch import distributions as pyd
 
-import utils
+from agent import utils
 
 
 class TanhTransform(pyd.transforms.Transform):

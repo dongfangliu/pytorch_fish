@@ -1,19 +1,12 @@
 #!/usr/bin/env python3
-import numpy as np
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import copy
-import math
 import os
-import sys
 import time
-import pickle as pkl
 
 from video import VideoRecorder
 from logger import Logger
-from replay_buffer import ReplayBuffer
-import utils
+from agent.replay_buffer import ReplayBuffer
+from agent import utils
 
 import dmc2gym
 import hydra

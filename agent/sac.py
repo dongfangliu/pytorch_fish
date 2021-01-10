@@ -1,18 +1,14 @@
 import numpy as np
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
-import math
 
-from agent import Agent
-import utils
-
+from agent import Agent, utils
 
 
 class SACAgent(Agent):
     """SAC algorithm."""
     def __init__(self, obs_dim, action_dim, action_range, device, critic_network,
-                 actor_network, discount, init_temperature, alpha_lr, alpha_betas,
+                 actor_network,replay_buffer, discount, init_temperature, alpha_lr, alpha_betas,
                  actor_lr, actor_betas, actor_update_frequency, critic_lr,
                  critic_betas, critic_tau, critic_target_update_frequency,
                  batch_size, learnable_temperature):
@@ -35,6 +31,8 @@ class SACAgent(Agent):
         self.critic_target.load_state_dict(self.critic.state_dict())
 
         self.actor = actor_network.to(self.device)
+
+        self.replay_buffer = replay_buffer
 
         self.log_alpha = torch.tensor(np.log(init_temperature)).to(self.device)
         self.log_alpha.requires_grad = True
@@ -70,7 +68,8 @@ class SACAgent(Agent):
             'actor_optimizer_state_dict': self.actor_optimizer.state_dict(),
             'critic_optimizer_state_dict': self.critic_optimizer.state_dict(),
             'log_alpha_optimizer_state_dict': self.log_alpha_optimizer.state_dict(),
-            'log_alpha_tensor':self.log_alpha
+            'log_alpha_tensor':self.log_alpha,
+            'replay_buffer':self.replay_buffer
         }, model_path)
 
     def load(self,model_path):
@@ -82,6 +81,7 @@ class SACAgent(Agent):
         self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer_state_dict'])
         self.log_alpha_optimizer.load_state_dict(checkpoint['log_alpha_optimizer_state_dict'])
         self.log_alpha =checkpoint['log_alpha_tensor']
+        self.replay_buffer = checkpoint['replay_buffer']
 
     @property
     def alpha(self):
@@ -149,8 +149,12 @@ class SACAgent(Agent):
             alpha_loss.backward()
             self.log_alpha_optimizer.step()
 
-    def update(self, replay_buffer, logger, step):
-        obs, action, reward, next_obs, not_done, not_done_no_max = replay_buffer.sample(
+    def soft_update_params(self,net, target_net, tau):
+        for param, target_param in zip(net.parameters(), target_net.parameters()):
+            target_param.data.copy_(tau * param.data +
+                                    (1 - tau) * target_param.data)
+    def update(self, logger, step):
+        obs, action, reward, next_obs, not_done, not_done_no_max = self.replay_buffer.sample(
             self.batch_size)
 
         logger.log('train/batch_reward', reward.mean(), step)
@@ -162,5 +166,5 @@ class SACAgent(Agent):
             self.update_actor_and_alpha(obs, logger, step)
 
         if step % self.critic_target_update_frequency == 0:
-            utils.soft_update_params(self.critic, self.critic_target,
+            self.soft_update_params(self.critic, self.critic_target,
                                      self.critic_tau)
