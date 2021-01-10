@@ -85,6 +85,7 @@ class DiagGaussianActor(nn.Module):
         dist = SquashedNormal(mu, std)
         return dist
 
+
     def log(self, logger, step):
         for k, v in self.outputs.items():
             logger.log_histogram(f'train_actor/{k}_hist', v, step)

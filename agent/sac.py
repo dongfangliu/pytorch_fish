@@ -7,13 +7,12 @@ import math
 from agent import Agent
 import utils
 
-import hydra
 
 
 class SACAgent(Agent):
     """SAC algorithm."""
-    def __init__(self, obs_dim, action_dim, action_range, device, critic_cfg,
-                 actor_cfg, discount, init_temperature, alpha_lr, alpha_betas,
+    def __init__(self, obs_dim, action_dim, action_range, device, critic_network,
+                 actor_network, discount, init_temperature, alpha_lr, alpha_betas,
                  actor_lr, actor_betas, actor_update_frequency, critic_lr,
                  critic_betas, critic_tau, critic_target_update_frequency,
                  batch_size, learnable_temperature):
@@ -28,12 +27,14 @@ class SACAgent(Agent):
         self.batch_size = batch_size
         self.learnable_temperature = learnable_temperature
 
-        self.critic = hydra.utils.instantiate(critic_cfg).to(self.device)
-        self.critic_target = hydra.utils.instantiate(critic_cfg).to(
+        self.critic = critic_network.to(self.device)
+
+        self.critic_target = critic_network.to(
             self.device)
+
         self.critic_target.load_state_dict(self.critic.state_dict())
 
-        self.actor = hydra.utils.instantiate(actor_cfg).to(self.device)
+        self.actor = actor_network.to(self.device)
 
         self.log_alpha = torch.tensor(np.log(init_temperature)).to(self.device)
         self.log_alpha.requires_grad = True
@@ -60,6 +61,27 @@ class SACAgent(Agent):
         self.training = training
         self.actor.train(training)
         self.critic.train(training)
+
+    def save(self,model_path):
+        torch.save({
+            'actor_state_dict': self.actor.state_dict(),
+            'critic_state_dict': self.critic.state_dict(),
+            'critic_target_state_dict': self.critic_target.state_dict(),
+            'actor_optimizer_state_dict': self.actor_optimizer.state_dict(),
+            'critic_optimizer_state_dict': self.critic_optimizer.state_dict(),
+            'log_alpha_optimizer_state_dict': self.log_alpha_optimizer.state_dict(),
+            'log_alpha_tensor':self.log_alpha
+        }, model_path)
+
+    def load(self,model_path):
+        checkpoint = torch.load(model_path)
+        self.actor.load_state_dict(checkpoint['actor_state_dict'])
+        self.critic.load_state_dict(checkpoint['critic_state_dict'])
+        self.critic_target.load_state_dict(checkpoint['critic_target_state_dict'])
+        self.actor_optimizer.load_state_dict(checkpoint['actor_optimizer_state_dict'])
+        self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer_state_dict'])
+        self.log_alpha_optimizer.load_state_dict(checkpoint['log_alpha_optimizer_state_dict'])
+        self.log_alpha =checkpoint['log_alpha_tensor']
 
     @property
     def alpha(self):

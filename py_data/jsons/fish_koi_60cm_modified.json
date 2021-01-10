@@ -1,0 +1,1802 @@
+{
+    "baseLinkFwd": [
+        1.0,
+        0.0,
+        0.0
+    ],
+    "baseFrameName": "[link]spine_jnt::spine_jnt_01",
+    "baseLinkName": "[link]spine_jnt::spine_jnt_01",
+    "baseLinkRight": [
+        0.0,
+        0.0,
+        1.0
+    ],
+    "baseLinkUp": [
+        0.0,
+        1.0,
+        0.0
+    ],
+    "joints": {
+        "bottom_fin_tip_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "bottom_fin_tip_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "bottom_fin_tip_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "bottom_fin_tip_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "bottom_fin_tip_03": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "bottom_fin_tip_03",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "buttop_fin_jnt_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "buttop_fin_jnt_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "buttop_fin_jnt_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "buttop_fin_jnt_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "buttop_fin_jnt_03": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "buttop_fin_jnt_03",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "down_jaw_jnt": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "down_jaw_jnt",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "down_jaw_tip": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "down_jaw_tip",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "head_jnt": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "head_jnt",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "head_jnt_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "head_jnt_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "head_jnt_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "head_jnt_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "head_tip": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "head_tip",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fin_jnt": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fin_jnt",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fin_jnt_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fin_jnt_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fin_jnt_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fin_jnt_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fin_jnt_intermediate_2": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fin_jnt_intermediate_2",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fin_tip": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fin_tip",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fine_jnt_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fine_jnt_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fine_jnt_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fine_jnt_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fine_tip_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fine_tip_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "l_fine_tip_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "l_fine_tip_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fin_jnt": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fin_jnt",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fin_jnt_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fin_jnt_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fin_jnt_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fin_jnt_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fin_jnt_intermediate_2": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fin_jnt_intermediate_2",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fin_tip": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fin_tip",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fine_jnt_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fine_jnt_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fine_jnt_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fine_jnt_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fine_tip_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fine_tip_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "r_fine_tip_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "r_fine_tip_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt",
+            "springStiffness": 0.0,
+            "type": "planar",
+            "useDynamcis": false,
+            "useLimits": false
+        },
+        "spine_jnt_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_01_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_01_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_01_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_01_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_01_intermediate_2": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_01_intermediate_2",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_01_intermediate_3": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_01_intermediate_3",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_02": {
+            "actuator": "servo",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 2000.0,
+                "lower": -0.52,
+                "upper": 0.52,
+                "velocity": 30.0
+            },
+            "name": "spine_jnt_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_03": {
+            "actuator": "mimic",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 2000.0,
+                "lower": -0.52,
+                "upper": 0.52,
+                "velocity": 30.0
+            },
+            "mimic": {
+                "joint": "spine_jnt_02",
+                "multiplier": 1.0,
+                "offset": 0.0
+            },
+            "name": "spine_jnt_03",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_03_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_03_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_03_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_03_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_04": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_04",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_04_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_04_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_04_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_04_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_04_intermediate_2": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_04_intermediate_2",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_intermediate_0": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_intermediate_0",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_intermediate_1": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_intermediate_1",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_intermediate_2": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_intermediate_2",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_jnt_intermediate_3": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_jnt_intermediate_3",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "spine_tip": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "spine_tip",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "tail_jnt_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "tail_jnt_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "tail_jnt_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "tail_jnt_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "tail_tip_jnt_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "tail_tip_jnt_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "tail_tip_jnt_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "tail_tip_jnt_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "tale_fin_tip_01": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "tale_fin_tip_01",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "tale_fin_tip_02": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "tale_fin_tip_02",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "top_fin_jnt": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "top_fin_jnt",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        },
+        "top_fin_tip": {
+            "actuator": "passive",
+            "axis": [
+                0.0,
+                1.0,
+                0.0
+            ],
+            "dynamics": {
+                "damping": 0.0,
+                "friction": 0.0
+            },
+            "limit": {
+                "effort": 0.0,
+                "lower": 0.0,
+                "upper": 0.0,
+                "velocity": 0.0
+            },
+            "name": "top_fin_tip",
+            "springStiffness": 0.0,
+            "type": "revolute",
+            "useDynamcis": false,
+            "useLimits": true
+        }
+    },
+    "links": {
+        "[link]buttop_fin_jnt_01::bottom_fin_tip_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]buttop_fin_jnt_01::bottom_fin_tip_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06364741176366842,
+                0.06364741176366842,
+                0.06364741176366842
+            ]
+        },
+        "[link]buttop_fin_jnt_02::bottom_fin_tip_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]buttop_fin_jnt_02::bottom_fin_tip_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06364740431308766,
+                0.06364740431308766,
+                0.06364740431308766
+            ]
+        },
+        "[link]buttop_fin_jnt_03::bottom_fin_tip_03": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]buttop_fin_jnt_03::bottom_fin_tip_03",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06740620732307541,
+                0.06740620732307541,
+                0.06740620732307541
+            ]
+        },
+        "[link]down_jaw_jnt::down_jaw_tip": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]down_jaw_jnt::down_jaw_tip",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.10767257958650914,
+                0.10767257958650914,
+                0.10767257958650914
+            ]
+        },
+        "[link]head_jnt": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]head_jnt",
+            "radius ": 0.019999999552965164,
+            "size": [
+                0.0,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]head_jnt::down_jaw_jnt": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]head_jnt::down_jaw_jnt",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.05276928099176572,
+                0.05276928099176572,
+                0.05276928099176572
+            ]
+        },
+        "[link]head_jnt::head_tip": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]head_jnt::head_tip",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.1293300986290019,
+                0.1293300986290019,
+                0.1293300986290019
+            ]
+        },
+        "[link]l_fin_jnt": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]l_fin_jnt",
+            "radius ": 0.019999999552965164,
+            "size": [
+                0.0,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]l_fin_jnt::l_fin_tip": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]l_fin_jnt::l_fin_tip",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.14267198741436132,
+                0.14267198741436132,
+                0.14267198741436132
+            ]
+        },
+        "[link]l_fin_jnt::l_fine_jnt_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]l_fin_jnt::l_fine_jnt_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.08480509117550858,
+                0.08480509117550858,
+                0.08480509117550858
+            ]
+        },
+        "[link]l_fin_jnt::l_fine_jnt_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]l_fin_jnt::l_fine_jnt_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.04337406675800356,
+                0.04337406675800356,
+                0.04337406675800356
+            ]
+        },
+        "[link]l_fine_jnt_01::l_fine_tip_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]l_fine_jnt_01::l_fine_tip_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.043656248599291896,
+                0.043656248599291896,
+                0.043656248599291896
+            ]
+        },
+        "[link]l_fine_jnt_02::l_fine_tip_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]l_fine_jnt_02::l_fine_tip_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.04330005496740341,
+                0.04330005496740341,
+                0.04330005496740341
+            ]
+        },
+        "[link]r_fin_jnt": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]r_fin_jnt",
+            "radius ": 0.019999999552965164,
+            "size": [
+                0.0,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]r_fin_jnt::r_fin_tip": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]r_fin_jnt::r_fin_tip",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.14267198741436513,
+                0.14267198741436513,
+                0.14267198741436513
+            ]
+        },
+        "[link]r_fin_jnt::r_fine_jnt_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]r_fin_jnt::r_fine_jnt_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.04359747788631332,
+                0.04359747788631332,
+                0.04359747788631332
+            ]
+        },
+        "[link]r_fin_jnt::r_fine_jnt_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]r_fin_jnt::r_fine_jnt_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.08503574143177182,
+                0.08503574143177182,
+                0.08503574143177182
+            ]
+        },
+        "[link]r_fine_jnt_01::r_fine_tip_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]r_fine_jnt_01::r_fine_tip_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.043300047516828075,
+                0.043300047516828075,
+                0.043300047516828075
+            ]
+        },
+        "[link]r_fine_jnt_02::r_fine_tip_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]r_fine_jnt_02::r_fine_tip_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.04365625232462803,
+                0.04365625232462803,
+                0.04365625232462803
+            ]
+        },
+        "[link]spine_jnt": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]spine_jnt",
+            "radius ": 0.019999999552965164,
+            "size": [
+                0.0,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]spine_jnt::head_jnt": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt::head_jnt",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.01944347470998764,
+                0.01944347470998764,
+                0.01944347470998764
+            ]
+        },
+        "[link]spine_jnt::l_fin_jnt": {
+            "isIntermediate": false,
+            "mass": 0.365296803652968,
+            "name": "[link]spine_jnt::l_fin_jnt",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.09413214087709812,
+                0.09413214087709812,
+                0.09413214087709812
+            ]
+        },
+        "[link]spine_jnt::r_fin_jnt": {
+            "isIntermediate": false,
+            "mass": 0.365296803652968,
+            "name": "[link]spine_jnt::r_fin_jnt",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.09498872441392059,
+                0.09498872441392059,
+                0.09498872441392059
+            ]
+        },
+        "[link]spine_jnt::spine_jnt_01": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt::spine_jnt_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.09152276813983917,
+                0.09152276813983917,
+                0.09152276813983917
+            ]
+        },
+        "[link]spine_jnt_01": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]spine_jnt_01",
+            "radius ": 0.019999999552965164,
+            "size": [
+                0.0,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]spine_jnt_01::buttop_fin_jnt_01": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt_01::buttop_fin_jnt_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.11743605559879848,
+                0.11743605559879848,
+                0.11743605559879848
+            ]
+        },
+        "[link]spine_jnt_01::buttop_fin_jnt_02": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt_01::buttop_fin_jnt_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.11751532080665736,
+                0.11751532080665736,
+                0.11751532080665736
+            ]
+        },
+        "[link]spine_jnt_01::spine_jnt_02": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt_01::spine_jnt_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.10100495070521814,
+                0.10100495070521814,
+                0.10100495070521814
+            ]
+        },
+        "[link]spine_jnt_01::top_fin_jnt": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt_01::top_fin_jnt",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.0984813846915947,
+                0.0984813846915947,
+                0.0984813846915947
+            ]
+        },
+        "[link]spine_jnt_02::spine_jnt_03": {
+            "isIntermediate": false,
+            "mass": 0.45662100456621,
+            "name": "[link]spine_jnt_02::spine_jnt_03",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.10408526659018183,
+                0.10408526659018183,
+                0.10408526659018183
+            ]
+        },
+        "[link]spine_jnt_03": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]spine_jnt_03",
+            "radius ": 0.019999999552965164,
+            "size": [
+                0.0,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]spine_jnt_03::buttop_fin_jnt_03": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]spine_jnt_03::buttop_fin_jnt_03",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.07055424706347913,
+                0.07055424706347913,
+                0.07055424706347913
+            ]
+        },
+        "[link]spine_jnt_03::spine_jnt_04": {
+            "isIntermediate": false,
+            "mass": 0.365296803652968,
+            "name": "[link]spine_jnt_03::spine_jnt_04",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.0863371863963331,
+                0.0863371863963331,
+                0.0863371863963331
+            ]
+        },
+        "[link]spine_jnt_04": {
+            "isIntermediate": true,
+            "mass": 0.1,
+            "name": "[link]spine_jnt_04",
+            "radius ": 0.019999999552965164,
+            "size": [
+                5.551115123125783e-17,
+                0.02,
+                0.02
+            ]
+        },
+        "[link]spine_jnt_04::spine_tip": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]spine_jnt_04::spine_tip",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06598945707122476,
+                0.06598945707122476,
+                0.06598945707122476
+            ]
+        },
+        "[link]spine_jnt_04::tail_tip_jnt_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]spine_jnt_04::tail_tip_jnt_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06987151016518298,
+                0.06987151016518298,
+                0.06987151016518298
+            ]
+        },
+        "[link]spine_jnt_04::tail_tip_jnt_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]spine_jnt_04::tail_tip_jnt_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06975514017877199,
+                0.06975514017877199,
+                0.06975514017877199
+            ]
+        },
+        "[link]tail_jnt_01::tale_fin_tip_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]tail_jnt_01::tale_fin_tip_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.06000747531652768,
+                0.06000747531652768,
+                0.06000747531652768
+            ]
+        },
+        "[link]tail_jnt_02::tale_fin_tip_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]tail_jnt_02::tale_fin_tip_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.05065832287075515,
+                0.05065832287075515,
+                0.05065832287075515
+            ]
+        },
+        "[link]tail_tip_jnt_01::tail_jnt_01": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]tail_tip_jnt_01::tail_jnt_01",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.07071662694216097,
+                0.07071662694216097,
+                0.07071662694216097
+            ]
+        },
+        "[link]tail_tip_jnt_02::tail_jnt_02": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]tail_tip_jnt_02::tail_jnt_02",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.07467933744192122,
+                0.07467933744192122,
+                0.07467933744192122
+            ]
+        },
+        "[link]top_fin_jnt::top_fin_tip": {
+            "isIntermediate": false,
+            "mass": 0.228310502283105,
+            "name": "[link]top_fin_jnt::top_fin_tip",
+            "radius ": 0.014999999664723873,
+            "size": [
+                0.0855819061398599,
+                0.0855819061398599,
+                0.0855819061398599
+            ]
+        }
+    },
+    "model_file": "./testObjs/fish_koi_60cm_noeye.fbx"
+}
