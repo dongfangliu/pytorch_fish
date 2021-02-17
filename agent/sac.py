@@ -69,7 +69,7 @@ class SACAgent(Agent):
             'critic_optimizer_state_dict': self.critic_optimizer.state_dict(),
             'log_alpha_optimizer_state_dict': self.log_alpha_optimizer.state_dict(),
             'log_alpha_tensor':self.log_alpha,
-            'replay_buffer':self.replay_buffer
+#             'replay_buffer':self.replay_buffer
         }, model_path)
 
     def load(self,model_path):
@@ -81,7 +81,7 @@ class SACAgent(Agent):
         self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer_state_dict'])
         self.log_alpha_optimizer.load_state_dict(checkpoint['log_alpha_optimizer_state_dict'])
         self.log_alpha =checkpoint['log_alpha_tensor']
-        self.replay_buffer = checkpoint['replay_buffer']
+#         self.replay_buffer = checkpoint['replay_buffer']
 
     @property
     def alpha(self):

@@ -197,7 +197,7 @@
     "links": {
         "[link]head::spine": {
             "isIntermediate": false,
-            "mass": 10.0,
+            "mass": 1.0,
             "name": "[link]head::spine",
             "radius ": 0.014999999664723873,
             "size": [
