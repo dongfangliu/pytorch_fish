@@ -8,7 +8,7 @@ from pathlib import Path
 ################################ START  WRITE JSON WRAPPER #################################
 #############################################################################################
 class fluid_param(json_util.json_support):
-    normal_attrs = ['x0', 'y0', 'z0', 'width', 'height', 'depth', 'N', 'l0p', 'u0k', 'u0p', 'rou0p', 'visp','pml_width']
+    normal_attrs = ['x0', 'y0', 'z0', 'width', 'height', 'depth', 'N', 'l0p', 'u0k', 'u0p', 'rou0p', 'visp','pml_width','slip_ratio']
     enum_attrs = ['setup_mode']
 
     def __init__(self):
