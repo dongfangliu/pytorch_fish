@@ -326,11 +326,10 @@ class FishEnv(gym.Env):
                 np.array([self.angle_to_target/math.pi]),
                 dp_local/self.radius,
                 proj_pt_local,
-#                 np.array([self.dist_to_path])/self.radius,
+                np.array([self.dist_to_path])/self.radius,
 #                 dp_local,
                 vel_local,
                 np.array([self.walk_target_dist])/self.radius,
-#                 np.array([self.walk_target_dist]),
                 joint_pos/0.52,
                 joint_vel/10,
         ),axis=0)
@@ -365,7 +364,8 @@ class FishEnv(gym.Env):
         self.path_start = self.goal_pos-self.path_dir*self.radius
     def _reset_task(self):
         theta = self.np_random.uniform(self.theta[0],self.theta[1])
-        dist = self.np_random.uniform(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
+        dist = self.np_random.normal(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
+        dist = np.abs(dist)
 #         dist = self.np_random.normal(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
         dist =min(max(0.01,dist),1.0)
         self.set_task(theta,dist)
