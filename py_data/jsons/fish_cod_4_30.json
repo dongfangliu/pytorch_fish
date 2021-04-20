@@ -5,7 +5,7 @@
         0.0,
         0.0
     ],
-    "baseLinkName": "[link]spine02::spine03",
+    "baseLinkName": "[link]head::spine",
     "baseLinkRight": [
         0.0,
         0.0,

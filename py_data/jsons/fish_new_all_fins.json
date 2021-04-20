@@ -1,0 +1,1040 @@
+{
+  "baseFrameName": "[link]spine::spine01",
+  "baseLinkFwd": [
+    1,
+    0,
+    0
+  ],
+  "baseLinkName": "[link]spine::spine01",
+  "baseLinkRight": [
+    0,
+    0,
+    1
+  ],
+  "baseLinkUp": [
+    0,
+    1,
+    0
+  ],
+  "joints": {
+    "anal_end_l": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "anal_end_l",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "anal_end_r": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "anal_end_r",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "anal_start_l": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.17,
+        "upper": 0.17,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "anal_start_l",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "anal_start_r": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.17,
+        "upper": 0.17,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "anal_start_r",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "head": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "head",
+      "springStiffness": 0,
+      "type": "planar",
+      "useDynamcis": false,
+      "useLimits": false
+    },
+    "pectroal_end_l": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "pectroal_end_l",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "pectroal_end_r": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "pectroal_end_r",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "pectroal_start_l": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.17,
+        "upper": 0.17,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "pectroal_start_l",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "pectroal_start_r": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.17,
+        "upper": 0.17,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "pectroal_start_r",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "plevic_end_l": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "plevic_end_l",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "plevic_end_r": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "plevic_end_r",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "plevic_start_l": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.17,
+        "upper": 0.17,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "plevic_start_l",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "plevic_start_r": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.17,
+        "upper": 0.17,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "plevic_start_r",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.04,
+        "upper": 0.04,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine01": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.08,
+        "upper": 0.08,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine01",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine01_intermediate_0": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine01_intermediate_0",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine01_intermediate_1": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine01_intermediate_1",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine01_intermediate_2": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine01_intermediate_2",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine02": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.16,
+        "upper": 0.16,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine02",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine02_intermediate_0": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine02_intermediate_0",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine02_intermediate_1": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine02_intermediate_1",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine02_intermediate_2": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine02_intermediate_2",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine03": {
+      "actuator": "force",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 20000,
+        "lower": -0.26,
+        "upper": 0.26,
+        "velocity": 10
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine03",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine_intermediate_0": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine_intermediate_0",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine_intermediate_1": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine_intermediate_1",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "spine_intermediate_2": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "spine_intermediate_2",
+      "springStiffness": 0,
+      "type": "fixed",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "tail_end": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "tail_end",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    },
+    "tail_start": {
+      "actuator": "passive",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "damping": 0,
+        "friction": 0
+      },
+      "limit": {
+        "effort": 0,
+        "lower": 0,
+        "upper": 0,
+        "velocity": 0
+      },
+      "mimic": {
+        "joint": "",
+        "multiplier": 1,
+        "offset": 0
+      },
+      "name": "tail_start",
+      "springStiffness": 0,
+      "type": "revolute",
+      "useDynamcis": false,
+      "useLimits": true
+    }
+  },
+  "links": {
+    "[link]anal_start_l::anal_end_l": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]anal_start_l::anal_end_l",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.0471017418531139,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]anal_start_r::anal_end_r": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]anal_start_r::anal_end_r",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04714894950862015,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]head::spine": {
+      "isIntermediate": false,
+      "mass": 0.4,
+      "name": "[link]head::spine",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.05824429169297218,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]pectroal_start_l::pectroal_end_l": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]pectroal_start_l::pectroal_end_l",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.05682423272553414,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]pectroal_start_r::pectroal_end_r": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]pectroal_start_r::pectroal_end_r",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.0569231815922435,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]plevic_start_l::plevic_end_l": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]plevic_start_l::plevic_end_l",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04676085853324413,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]plevic_start_r::plevic_end_r": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]plevic_start_r::plevic_end_r",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04680895694124947,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine": {
+      "isIntermediate": true,
+      "mass": 0.01,
+      "name": "[link]spine",
+      "radius ": 0.019999999552965164,
+      "size": [
+        0,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine01": {
+      "isIntermediate": true,
+      "mass": 0.01,
+      "name": "[link]spine01",
+      "radius ": 0.019999999552965164,
+      "size": [
+        0,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine01::plevic_start_l": {
+      "isIntermediate": false,
+      "mass": 0.1,
+      "name": "[link]spine01::plevic_start_l",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.05259195290180324,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine01::plevic_start_r": {
+      "isIntermediate": false,
+      "mass": 0.1,
+      "name": "[link]spine01::plevic_start_r",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.05251432529554602,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine01::spine02": {
+      "isIntermediate": false,
+      "mass": 0.4,
+      "name": "[link]spine01::spine02",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04304654523730278,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine02": {
+      "isIntermediate": true,
+      "mass": 0.01,
+      "name": "[link]spine02",
+      "radius ": 0.019999999552965164,
+      "size": [
+        0,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine02::anal_start_l": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]spine02::anal_start_l",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04703830330214202,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine02::anal_start_r": {
+      "isIntermediate": false,
+      "mass": 0.05,
+      "name": "[link]spine02::anal_start_r",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.046987299108133554,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine02::spine03": {
+      "isIntermediate": false,
+      "mass": 0.1,
+      "name": "[link]spine02::spine03",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.059146035462617874,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine03::tail_start": {
+      "isIntermediate": false,
+      "mass": 0.1,
+      "name": "[link]spine03::tail_start",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.0475664921104908,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine::pectroal_start_l": {
+      "isIntermediate": false,
+      "mass": 0.2,
+      "name": "[link]spine::pectroal_start_l",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04570794678817041,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine::pectroal_start_r": {
+      "isIntermediate": false,
+      "mass": 0.2,
+      "name": "[link]spine::pectroal_start_r",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04545814320145334,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]spine::spine01": {
+      "isIntermediate": false,
+      "mass": 0.6,
+      "name": "[link]spine::spine01",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.05642681568861008,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]tail_start::tail_end": {
+      "isIntermediate": false,
+      "mass": 0.06,
+      "name": "[link]tail_start::tail_end",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.06747804582118988,
+        0.05,
+        0.05
+      ]
+    }
+  },
+  "markers_placements": [],
+  "model_file": "/root/pytorch_fish/testObjs/fish_new_all_fins.fbx"
+}

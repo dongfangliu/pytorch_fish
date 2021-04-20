@@ -237,7 +237,7 @@ class FishEnv(gym.Env):
     def _get_done(self):
         done = False 
         done = done or self.rigid_data.rigidWorld.time>self.max_time 
-        done = done or np.linalg.norm(self.body_xyz-self.goal_pos)<self.done_dist
+        done = done or np.linalg.norm(self.proj_pt_world-self.goal_pos)<self.done_dist
 #         done = done or np.linalg.norm(self.dist_to_path)>0.8
         return  done 
 
@@ -259,20 +259,21 @@ class FishEnv(gym.Env):
         self.close_potential = self.calc__close_potential()
         close_reward = self.wr[0]*np.exp(-5* self.dist_to_path)+self.wr[1]*float(self.close_potential - close_potential_old)/t*t_standard
 
-        action_reward =-np.sum(np.abs(action)**2)
+        action_reward =-np.sum(np.abs(action)**(0.5))*self.wa
     
 #         if np.linalg.norm(self.body_xyz-self.goal_pos)<self.done_dist:
 #             succed_reward = 100
 #         else:
 #             succed_reward = 0
-        total_reward = dist_reward+close_reward+self.live_penality
+        total_reward = dist_reward+close_reward+self.live_penality+action_reward
         
-        info = {'live_penality':self.live_penality,'dist_reward':dist_reward,"close_reward":close_reward}
+        info = {'live_penality':self.live_penality,'dist_reward':dist_reward,"close_reward":close_reward,"action_reward":action_reward}
         return min(max(-5,total_reward),5),info
     def _get_action_space(self):
-        low = np.array([-self.action_max,-self.action_max,-self.action_max,-self.action_max])
-        high=np.array([self.action_max,self.action_max,self.action_max,self.action_max])
-        
+#         low = np.array([-self.action_max,-self.action_max,-self.action_max,-self.action_max])
+#         high=np.array([self.action_max,self.action_max,self.action_max,self.action_max])
+        low = -np.ones(self.action_dim)*self.action_max
+        high= -low
         self.action_space_mean = (low+high)/2
         self.action_space_std = (high-low)/2
         return spaces.Box(low = -1,high=1,shape=low.shape)
@@ -325,7 +326,7 @@ class FishEnv(gym.Env):
                 np.array([self.angle_to_target/math.pi]),
                 dp_local/self.radius,
                 proj_pt_local,
-                np.array([self.dist_to_path]),
+#                 np.array([self.dist_to_path])/self.radius,
 #                 dp_local,
                 vel_local,
                 np.array([self.walk_target_dist])/self.radius,
