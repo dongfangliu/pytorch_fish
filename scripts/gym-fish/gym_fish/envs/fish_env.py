@@ -142,7 +142,6 @@ class FishEnv(gym.Env):
         for p in self.dataPath.values():
             if not os.path.exists(p):
                 os.makedirs(p)
-        _obs = self.reset()
         ## set action and state space
         self.dofs = []
         for skeleton in self.rigid_data.skeletons:
@@ -150,11 +149,26 @@ class FishEnv(gym.Env):
 #             self.renderer.addDynamics(skeleton.dynamics)
             
         self.action_dim = sum(self.dofs)
+        
+        
+        _obs = self.reset()
         self.action_space = self._get_action_space() 
         self.observation_space = convert_observation_to_space(_obs)
         ## Check saving directory avaliable
 
+    def set_datapath(folder_path):
+        self.simulator.mainDataFolderPath = folder_path
+        self.dataPath = {}
+        self.dataPath["fluid"] = str(Path(self.simulator.mainDataFolderPath + self.simulator.fluidFolderName + '/').resolve())
+        self.dataPath["objects"] = str(Path(self.simulator.mainDataFolderPath + self.simulator.objectsFolderName + '/').resolve())
+        self.dataPath["trajectory"] = str(Path(self.simulator.mainDataFolderPath + 'Trajectory/').resolve())
         
+        if not os.path.exists(self.simulator.mainDataFolderPath):
+            os.makedirs(self.simulator.mainDataFolderPath)
+        for p in self.dataPath.values():
+            if not os.path.exists(p):
+                os.makedirs(p)
+                
     def seed(self, seed=None):
         self.np_random, seed = gym.utils.seeding.np_random(seed)
         return [seed]
@@ -210,6 +224,7 @@ class FishEnv(gym.Env):
         return obs,None,done,None
     
     def step(self, action,save_fluid=False, save_objects=False,test_mode=False):
+        self.last_action = action
         act= self._unnormalize_action(action)
         dt = self.rigid_data.rigidWorld.getTimestep()
         dynamics = self.rigid_data.skeletons[0].dynamics
@@ -332,6 +347,7 @@ class FishEnv(gym.Env):
                 np.array([self.walk_target_dist])/self.radius,
                 joint_pos/0.52,
                 joint_vel/10,
+#                 self.last_action
         ),axis=0)
         return obs
     
@@ -378,10 +394,11 @@ class FishEnv(gym.Env):
         
         self.trajectory_points=[]
         
+        self.last_action = np.ones(self.action_dim)*0
         self.last_obs = self._get_obs()
-        
         self.dist_potential = self.calc__dist_potential()
         self.close_potential = self.calc__close_potential()
+        
         
         ref_line = fl.debugLine()
         ref_line.vertices = [
