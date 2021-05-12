@@ -87,16 +87,20 @@ def convert_observation_to_space(observation):
 
 class FishEnv(gym.Env):
     metadata = {}
-    def __init__(self, gpuId:int = 0,frame_skip=200,radius=2.0,
-                 wr = np.array([0.0,0.0]),wp= np.array([0.0,1.0]),live_penality=-0.1,wa=0.00001,
+    def __init__(self, gpuId:int = 0,
+                 control_dt=0.2,
+                 radius=2.0,
+                 wv = np.array([0.0,0.0]),
+                 wp= np.array([0.0,1.0]),
+                 wa=0.00001,
+                 live_penality=-0.1,
                  couple_mode= fl.COUPLE_MODE.TWO_WAY,
+                 step_budget_range=np.array([0,1]),
                  theta = np.array([-45,45]),
-                 vel_theta = np.array([-45.45]),
                  random_vel = np.array([0,0.3]),
-                 action_max = 5,
+                 action_max = 2,
                  max_time = 10,
-                 done_dist=0.1,
-                 dist_distri_param =np.array([0,0.5]),
+                 done_dist=0.3,
                  use_com=True,
                  rigid_json: str='./py_data/jsons/rigids_2_30.json',
                  fluid_json: str='./py_data/jsons/fluid_param_0.5.json',
@@ -111,16 +115,16 @@ class FishEnv(gym.Env):
         self.couple_mode = couple_mode
         self.action_max = action_max
         self.max_time = max_time
-        self.theta = theta/180.0*math.pi
-        self.vel_theta = vel_theta/180.0*math.pi
         
-        self.wr = wr
+        self.theta = theta/180.0*math.pi
+        self.step_budget_range =step_budget_range
+        
+        self.wv = wv
         self.wp = wp
         self.wa = wa
         self.live_penality = live_penality
         self.done_dist = done_dist
-        self.dist_distri_param = dist_distri_param
-        self.frame_skip=frame_skip
+        self.control_dt=control_dt
         self.training = True
         self.use_com= use_com
         
@@ -128,27 +132,7 @@ class FishEnv(gym.Env):
         self.setupDynamcis()
         
         self.seed()
-        ## setup renderer
-#         self.renderer = fl.make_renderer(1024,768)
-#         self.renderer.addTrajectory(self.path_data.trajectory)
-#         self.renderer.setCamera([2,5.5,4],[2,2,3],[0,1,0])
-        self.dataPath = {}
-        self.dataPath["fluid"] = str(Path(self.simulator.mainDataFolderPath + self.simulator.fluidFolderName + '/').resolve())
-        self.dataPath["objects"] = str(Path(self.simulator.mainDataFolderPath + self.simulator.objectsFolderName + '/').resolve())
-        self.dataPath["trajectory"] = str(Path(self.simulator.mainDataFolderPath + 'Trajectory/').resolve())
-        
-        if not os.path.exists(self.simulator.mainDataFolderPath):
-            os.makedirs(self.simulator.mainDataFolderPath)
-        for p in self.dataPath.values():
-            if not os.path.exists(p):
-                os.makedirs(p)
-        ## set action and state space
-        self.dofs = []
-        for skeleton in self.rigid_data.skeletons:
-            self.dofs.append(skeleton.dynamics.getNumDofs())
-#             self.renderer.addDynamics(skeleton.dynamics)
-            
-        self.action_dim = sum(self.dofs)
+        self.set_datapath('./data/vis_data/')
         
         
         _obs = self.reset()
@@ -156,7 +140,7 @@ class FishEnv(gym.Env):
         self.observation_space = convert_observation_to_space(_obs)
         ## Check saving directory avaliable
 
-    def set_datapath(folder_path):
+    def set_datapath(self,folder_path):
         self.simulator.mainDataFolderPath = folder_path
         self.dataPath = {}
         self.dataPath["fluid"] = str(Path(self.simulator.mainDataFolderPath + self.simulator.fluidFolderName + '/').resolve())
@@ -201,48 +185,40 @@ class FishEnv(gym.Env):
 #         del self.renderer
         
         
-
-#     def set_path(self,path:flare_util.path_data):
-#         assert type(path)==flare_util.path_data
-#         self.path_data=path
         
     def stepOnce(self,raw_action,save_fluid=False, save_objects=True):
         dynamics = self.rigid_data.skeletons[0].dynamics
         dt = self.rigid_data.rigidWorld.getTimestep()
-#         dynamics.setAngleCommands(raw_action,dt)
         dynamics.setCommands(raw_action)
         self.simulator.step(self.couple_mode)
         obs = self._get_obs()
         self.trajectory_points.append(self.body_xyz)
-#         reward,info = self._get_reward()
         done = self._get_done() 
         if (not np.isfinite(obs).all()):
             print("NAN OBS")
+            obs = self.last_obs
             done=True
         self.save_data_framRate(save_fluid,save_objects)
-#         return obs,reward,done,info
+        self.last_obs = obs
         return obs,None,done,None
     
     def step(self, action,save_fluid=False, save_objects=False,test_mode=False):
-        self.last_action = action
-        act= self._unnormalize_action(action)
         dt = self.rigid_data.rigidWorld.getTimestep()
         dynamics = self.rigid_data.skeletons[0].dynamics
         t = 0
-        while t< dt*self.frame_skip:
-            ctrl = act
-            obs,_,done,_ =self.stepOnce(ctrl,save_fluid,save_objects)
+        action = self._update_budget_action(action)
+        self.last_action = action
+        act= self._unnormalize_action(action)
+        while t< self.control_dt:
+            obs,_,done,_ =self.stepOnce(act,save_fluid,save_objects)
             t = t+dt
             if done:
                 if not self.training:
                     continue;
                 else:
                     break
-        reward,info = self._get_reward(dt*self.frame_skip,t,obs = obs,action=action)
+        reward,info = self._get_reward(self.control_dt,t,obs = obs,action=action)
         return obs, reward, done,info
-#         o,r,d,i = self.stepOnce(action,save_fluid, save_objects)
-#         reward,info = self._get_reward()
-#         return o,reward,d,info
 
     def stepSave(self,action,save_fluid=False, save_objects=True,test_mode=False):
         o,r,d,i = self.step(action,save_fluid, save_objects,test_mode=test_mode)
@@ -252,16 +228,20 @@ class FishEnv(gym.Env):
     def _get_done(self):
         done = False 
         done = done or self.rigid_data.rigidWorld.time>self.max_time 
-        done = done or np.linalg.norm(self.proj_pt_world-self.goal_pos)<self.done_dist
-#         done = done or np.linalg.norm(self.dist_to_path)>0.8
+        done = done or np.linalg.norm(self.body_xyz-self.goal_pos)<self.done_dist
         return  done 
 
-    
+    def _update_budget_action(self,action):
+        # return feasible action in budget
+        attempt_cost = np.sum(np.abs(action))
+        feasible_cost = np.clip(attempt_cost,0,self.cur_budget)
+        action = action*feasible_cost/(attempt_cost+1e-6)
+        self.action_cost = feasible_cost
+        self.cur_budget=max(0,self.cur_budget-feasible_cost)
+        return action
     
     def calc__dist_potential(self):
-        return -self.walk_target_dist / 0.05*(0.2/(self.frame_skip*self.dt))
-    def calc__close_potential(self):
-        return -self.dist_to_path /0.05*(0.2/(self.frame_skip*self.dt))
+        return -self.walk_target_dist / 0.05*(0.2/(self.control_dt))
     
 
     
@@ -269,24 +249,15 @@ class FishEnv(gym.Env):
         dist_potential_old = self.dist_potential
         self.dist_potential = self.calc__dist_potential()
         dist_reward = self.wp[0]*np.exp(-3* (self.walk_target_dist**2))+self.wp[1]*float(self.dist_potential - dist_potential_old)/t*t_standard
+        action_reward =-np.sum(np.abs(action)**0.5)*self.wa
+        vel_reward = self.wv*np.exp(-5* np.abs(np.linalg.norm(self.vel)-self.target_vel))
         
-        close_potential_old = self.close_potential
-        self.close_potential = self.calc__close_potential()
-        close_reward = self.wr[0]*np.exp(-5* self.dist_to_path)+self.wr[1]*float(self.close_potential - close_potential_old)/t*t_standard
-
-        action_reward =-np.sum(np.abs(action)**(0.5))*self.wa
-    
-#         if np.linalg.norm(self.body_xyz-self.goal_pos)<self.done_dist:
-#             succed_reward = 100
-#         else:
-#             succed_reward = 0
-        total_reward = dist_reward+close_reward+self.live_penality+action_reward
+        total_reward = dist_reward+action_reward+vel_reward+self.live_penality
         
-        info = {'live_penality':self.live_penality,'dist_reward':dist_reward,"close_reward":close_reward,"action_reward":action_reward}
+        info = {'live_penality':self.live_penality,'dist_reward':dist_reward,"action_reward":action_reward,'vel_reward':vel_reward}
         return min(max(-5,total_reward),5),info
+    
     def _get_action_space(self):
-#         low = np.array([-self.action_max,-self.action_max,-self.action_max,-self.action_max])
-#         high=np.array([self.action_max,self.action_max,self.action_max,self.action_max])
         low = -np.ones(self.action_dim)*self.action_max
         high= -low
         self.action_space_mean = (low+high)/2
@@ -305,10 +276,10 @@ class FishEnv(gym.Env):
         dynamics = self.rigid_data.skeletons[0].dynamics
         if self.use_com==True:
             self.body_xyz =  dynamics.getCOM()
-            vel  =  dynamics.getCOMLinearVelocity()
+            self.vel  =  dynamics.getCOMLinearVelocity()
         else:
             self.body_xyz =  dynamics.getBaseLink().getPosition()  
-            vel  =  dynamics.getBaseLink().getLinearVelocity()
+            self.vel  =  dynamics.getBaseLink().getLinearVelocity()
         
         
         # update local matrix
@@ -325,29 +296,27 @@ class FishEnv(gym.Env):
             self.angle_to_target = -self.angle_to_target
         #in local coordinate
         dp_local = np.dot(self.world_to_local,np.transpose(self.goal_pos-self.body_xyz))
-        vel_local = np.dot(self.world_to_local,np.transpose(vel))
+        vel_local = np.dot(self.world_to_local,np.transpose(self.vel))
         
-        rela_vec_to_goal = self.goal_pos-self.body_xyz
-        if self.training:
-            dist_to_path = np.linalg.norm(rela_vec_to_goal-self.path_dir*np.dot(rela_vec_to_goal,self.path_dir))
-            self.proj_pt_world = self.goal_pos-self.path_dir*np.dot(rela_vec_to_goal,self.path_dir)
             
-        proj_pt_local = np.dot(self.world_to_local,np.transpose(self.proj_pt_world-self.body_xyz))
-        self.dist_to_path = np.linalg.norm(proj_pt_local)
+        
         joint_pos = dynamics.getPositions(includeBase=False)
         joint_vel = dynamics.getVelocities(includeBase=False)
+        
+        task_config = np.array([self.step_budget,self.target_vel,self.dp_init[0],self.dp_init[1],self.dp_init[2]])
+        
         obs = np.concatenate(
             (
-                np.array([self.angle_to_target/math.pi]),
-                dp_local/self.radius,
-                proj_pt_local,
-                np.array([self.dist_to_path])/self.radius,
-#                 dp_local,
+                task_config,
+                dp_local,
                 vel_local,
-                np.array([self.walk_target_dist])/self.radius,
+                
+#                 self.last_action,
+                np.array([self.cur_budget/(self.init_budget+1e-4)]),
+                
                 joint_pos/0.52,
                 joint_vel/10,
-#                 self.last_action
+                
         ),axis=0)
         return obs
     
@@ -356,39 +325,56 @@ class FishEnv(gym.Env):
         
     def _reset_robot(self):
         skeleton_dynamics = self.rigid_data.skeletons[0].dynamics
-        angle =  self.np_random.uniform(self.vel_theta[0],self.vel_theta[1])
-        vel =  np.array([math.cos(angle),0,math.sin(angle)])*self.np_random.uniform(self.random_vel[0],self.random_vel[1],size=1)
+#         angle =  self.np_random.uniform(self.vel_theta[0],self.vel_theta[1])
+#         vel =  np.array([math.cos(angle),0,math.sin(angle)])*self.np_random.uniform(self.random_vel[0],self.random_vel[1],size=1)
         
-        skeleton_dynamics.getJoint("head").setVelocity(0,vel[0])
-        skeleton_dynamics.getJoint("head").setVelocity(1,vel[1])
-#         skeleton_dynamics.getJoint("head").setPosition(2,self.np_random.uniform(-0.52,0.52,size=1))
-        joint_list =['spine','spine01','spine02','spine03']
-        for jnt_name in joint_list:
-            skeleton_dynamics.getJoint(jnt_name).setPosition(0,self.np_random.uniform(-0.52,0.52,size=1))
-            skeleton_dynamics.getJoint(jnt_name).setVelocity(0,self.np_random.uniform(-10,10,size=1))
-        skeleton_dynamics.update()
+#         skeleton_dynamics.getJoint("head").setVelocity(0,vel[0])
+#         skeleton_dynamics.getJoint("head").setVelocity(1,vel[1])
+# #         skeleton_dynamics.getJoint("head").setPosition(2,self.np_random.uniform(-0.52,0.52,size=1))
+#         joint_list =['spine','spine01','spine02','spine03']
+#         for jnt_name in joint_list:
+#             skeleton_dynamics.getJoint(jnt_name).setPosition(0,self.np_random.uniform(-0.52,0.52,size=1))
+#             skeleton_dynamics.getJoint(jnt_name).setVelocity(0,self.np_random.uniform(-10,10,size=1))
+#         skeleton_dynamics.update()
         self.body_xyz = skeleton_dynamics.getBaseLink().getPosition()
         self.init_pos = self.body_xyz
-    def set_task(self,theta,dist):
-        goal_dir = np.array([math.cos(theta),0,math.sin(theta)])
-        self.goal_pos = self.init_pos+self.radius*goal_dir
-        has_sol,start_pts = generate_traj(self.body_xyz,self.goal_pos,dist,visualize=False)
-        self.path_start = start_pts[np.random.choice(start_pts.shape[0]),:]
-        self.path_start =np.array([self.path_start[0],self.body_xyz[1],self.path_start[1]])
-        self.path_dir = self.goal_pos-self.path_start
-        self.path_dir = self.path_dir/np.linalg.norm(self.path_dir)
-        self.path_start = self.goal_pos-self.path_dir*self.radius
+    def set_task(self,goal_pos,target_vel,step_budget):
+        dynamics = self.rigid_data.skeletons[0].dynamics
+        x_axis = dynamics.getBaseLinkFwd()
+        y_axis = dynamics.getBaseLinkUp()
+        z_axis = dynamics.getBaseLinkRight()
+        self.goal_pos = goal_pos
+        self.world_to_local = np.linalg.inv(np.array([x_axis,y_axis,z_axis]).transpose())
+        self.dp_init = np.dot(self.world_to_local,np.transpose(self.goal_pos-self.init_pos))
+        self.target_vel = target_vel
+        self.step_budget = step_budget
+        self.init_budget = step_budget*self.max_time/self.control_dt*self.action_dim
+        self.cur_budget = step_budget*self.max_time/self.control_dt*self.action_dim
+        print('Set task with BUDGET {} ,VEL {},GOAL {}'.format(self.step_budget,self.target_vel,self.dp_init))
+        
     def _reset_task(self):
         theta = self.np_random.uniform(self.theta[0],self.theta[1])
-        dist = self.np_random.normal(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
-        dist = np.abs(dist)
-#         dist = self.np_random.normal(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
-        dist =min(max(0.01,dist),1.0)
-        self.set_task(theta,dist)
+
+        goal_dir = np.array([math.cos(theta),0,math.sin(theta)])
+        goal_pos = self.init_pos+self.radius*goal_dir
+    
+        target_vel = self.np_random.uniform(self.random_vel[0],self.random_vel[1])
+        budget = self.np_random.uniform(self.step_budget_range[0],self.step_budget_range[1])
+        
+        self.set_task(goal_pos,target_vel,budget)
         
         
     def reset(self):
         self.setupDynamcis()
+        
+        ## set action and state space
+        self.dofs = []
+        for skeleton in self.rigid_data.skeletons:
+            self.dofs.append(skeleton.dynamics.getNumDofs())
+#             self.renderer.addDynamics(skeleton.dynamics)
+            
+        self.action_dim = sum(self.dofs)
+        
         self._reset_robot()
         self._reset_task()
         
@@ -397,12 +383,11 @@ class FishEnv(gym.Env):
         self.last_action = np.ones(self.action_dim)*0
         self.last_obs = self._get_obs()
         self.dist_potential = self.calc__dist_potential()
-        self.close_potential = self.calc__close_potential()
         
         
         ref_line = fl.debugLine()
         ref_line.vertices = [
-            self.path_start*(1.0-t)+self.goal_pos*t for t in np.arange(0.0,1.0,1.0/100)
+            self.init_pos*(1.0-t)+self.goal_pos*t for t in np.arange(0.0,1.0,1.0/100)
         ]
         fl.VTKWriter.writeLines([ref_line], self.dataPath["trajectory"]+"/trajectory_ideal.vtk")
         return self.last_obs
@@ -411,7 +396,7 @@ class FishEnv(gym.Env):
     
     def plot3d(self,title=None,fig_name=None,elev=45,azim=45):
         path_points =np.array( [
-            self.path_start*(1.0-t)+self.goal_pos*t for t in np.arange(0.0,1.0,1.0/100)
+            self.init_pos*(1.0-t)+self.goal_pos*t for t in np.arange(0.0,1.0,1.0/100)
         
         ])
         trajectory_points = self.trajectory_points
@@ -429,8 +414,6 @@ class FishEnv(gym.Env):
         ax.set_xlim(mid_x - max_range, mid_x + max_range)
         ax.set_ylim(mid_z - max_range, mid_z + max_range)
         ax.set_zlim(mid_y - max_range, mid_y + max_range)
-#         if path_points!=None:
-#             ax.scatter3D(xs=[x.data[0] for x in path_points], zs=[x.data[1] for x in path_points], ys=[x.data[2] for x in path_points],c='g')
         ax.scatter3D(xs=X, zs=Y, ys=Z,c='g')
         if trajectory_points!=None:
             ax.scatter3D(xs=[x[0] for x in trajectory_points],
