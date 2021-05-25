@@ -1,5 +1,5 @@
 {
-  "baseFrameName": "[link]b_Main::b_Tail_00",
+  "baseFrameName": "",
   "baseLinkFwd": [
     1,
     0,
@@ -20,19 +20,29 @@
     "b_L_Lobe_00": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -40,7 +50,7 @@
         "offset": 0
       },
       "name": "b_L_Lobe_00",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -48,19 +58,29 @@
     "b_L_Lobe_01": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -68,7 +88,7 @@
         "offset": 0
       },
       "name": "b_L_Lobe_01",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -76,19 +96,29 @@
     "b_L_Lobe_02": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -96,27 +126,46 @@
         "offset": 0
       },
       "name": "b_L_Lobe_02",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_L_Wing_00": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000,
+          20000
+        ],
+        "lower": [
+          -0.26,
+          -0.08
+        ],
+        "upper": [
+          0.26,
+          0.08
+        ],
+        "velocity": [
+          10,
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -124,27 +173,46 @@
         "offset": 0
       },
       "name": "b_L_Wing_00",
-      "springStiffness": 0,
-      "type": "revolute",
+      "springStiffness": 0.1,
+      "type": "universal",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_L_Wing_01": {
-      "actuator": "servo",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": -0.52,
-        "upper": 0.52,
-        "velocity": 0
+        "effort": [
+          20000,
+          20000
+        ],
+        "lower": [
+          -0.26,
+          -0.08
+        ],
+        "upper": [
+          0.26,
+          0.08
+        ],
+        "velocity": [
+          10,
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -152,27 +220,46 @@
         "offset": 0
       },
       "name": "b_L_Wing_01",
-      "springStiffness": 0,
-      "type": "revolute",
+      "springStiffness": 0.1,
+      "type": "universal",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_L_Wing_02": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000,
+          20000
+        ],
+        "lower": [
+          -0.26,
+          -0.08
+        ],
+        "upper": [
+          0.26,
+          0.08
+        ],
+        "velocity": [
+          10,
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -180,27 +267,37 @@
         "offset": 0
       },
       "name": "b_L_Wing_02",
-      "springStiffness": 0,
-      "type": "revolute",
+      "springStiffness": 0.1,
+      "type": "universal",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_L_Wing_03": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.26
+        ],
+        "upper": [
+          0.26
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -208,27 +305,37 @@
         "offset": 0
       },
       "name": "b_L_Wing_03",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_L_Wing_04": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.26
+        ],
+        "upper": [
+          0.26
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -236,7 +343,7 @@
         "offset": 0
       },
       "name": "b_L_Wing_04",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -244,19 +351,29 @@
     "b_L_Wing_05": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.26
+        ],
+        "upper": [
+          0.26
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -264,7 +381,7 @@
         "offset": 0
       },
       "name": "b_L_Wing_05",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -272,19 +389,29 @@
     "b_L_Wing_06": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -292,7 +419,7 @@
         "offset": 0
       },
       "name": "b_L_Wing_06",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -300,19 +427,29 @@
     "b_R_Lobe_00": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -320,7 +457,7 @@
         "offset": 0
       },
       "name": "b_R_Lobe_00",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -328,19 +465,29 @@
     "b_R_Lobe_01": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -348,7 +495,7 @@
         "offset": 0
       },
       "name": "b_R_Lobe_01",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -356,19 +503,29 @@
     "b_R_Lobe_02": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -376,27 +533,46 @@
         "offset": 0
       },
       "name": "b_R_Lobe_02",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_R_Wing_00": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000,
+          20000
+        ],
+        "lower": [
+          -0.26,
+          -0.08
+        ],
+        "upper": [
+          0.26,
+          0.08
+        ],
+        "velocity": [
+          10,
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -404,27 +580,46 @@
         "offset": 0
       },
       "name": "b_R_Wing_00",
-      "springStiffness": 0,
-      "type": "revolute",
+      "springStiffness": 0.1,
+      "type": "universal",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_R_Wing_01": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000,
+          20000
+        ],
+        "lower": [
+          -0.26,
+          -0.08
+        ],
+        "upper": [
+          0.26,
+          0.08
+        ],
+        "velocity": [
+          10,
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -432,83 +627,112 @@
         "offset": 0
       },
       "name": "b_R_Wing_01",
-      "springStiffness": 0,
-      "type": "revolute",
+      "springStiffness": 0.1,
+      "type": "universal",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_R_Wing_02": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
-      },
-      "mimic": {
-        "joint": "",
-        "multiplier": 1,
-        "offset": 0
+        "effort": [
+          20000,
+          20000
+        ],
+        "lower": [
+          -0.26,
+          -0.08
+        ],
+        "upper": [
+          0.26,
+          0.08
+        ],
+        "velocity": [
+          10,
+          10
+        ]
       },
       "name": "b_R_Wing_02",
-      "springStiffness": 0,
-      "type": "revolute",
+      "springStiffness": 0.1,
+      "type": "universal",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_R_Wing_03": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
-      },
-      "mimic": {
-        "joint": "",
-        "multiplier": 1,
-        "offset": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.26
+        ],
+        "upper": [
+          0.26
+        ],
+        "velocity": [
+          10
+        ]
       },
       "name": "b_R_Wing_03",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_R_Wing_04": {
-      "actuator": "passive",
+      "actuator": "force",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.26
+        ],
+        "upper": [
+          0.26
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -516,7 +740,7 @@
         "offset": 0
       },
       "name": "b_R_Wing_04",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -524,27 +748,32 @@
     "b_R_Wing_05": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
-      },
-      "mimic": {
-        "joint": "",
-        "multiplier": 1,
-        "offset": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.26
+        ],
+        "upper": [
+          0.26
+        ],
+        "velocity": [
+          10
+        ]
       },
       "name": "b_R_Wing_05",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -552,19 +781,29 @@
     "b_R_Wing_06": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -572,7 +811,7 @@
         "offset": 0
       },
       "name": "b_R_Wing_06",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -580,19 +819,29 @@
     "b_Tail_00": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.08
+        ],
+        "upper": [
+          0.08
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -600,7 +849,7 @@
         "offset": 0
       },
       "name": "b_Tail_00",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -608,19 +857,29 @@
     "b_Tail_01": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.08
+        ],
+        "upper": [
+          0.08
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -628,7 +887,7 @@
         "offset": 0
       },
       "name": "b_Tail_01",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -636,19 +895,29 @@
     "b_Tail_02": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.08
+        ],
+        "upper": [
+          0.08
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -656,7 +925,7 @@
         "offset": 0
       },
       "name": "b_Tail_02",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -664,19 +933,29 @@
     "b_Tail_03": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.08
+        ],
+        "upper": [
+          0.08
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -684,7 +963,7 @@
         "offset": 0
       },
       "name": "b_Tail_03",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -692,19 +971,29 @@
     "b_Tail_04": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.08
+        ],
+        "upper": [
+          0.08
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -712,7 +1001,7 @@
         "offset": 0
       },
       "name": "b_Tail_04",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -720,19 +1009,29 @@
     "b_Tail_05": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          20000
+        ],
+        "lower": [
+          -0.08
+        ],
+        "upper": [
+          0.08
+        ],
+        "velocity": [
+          10
+        ]
       },
       "mimic": {
         "joint": "",
@@ -740,7 +1039,7 @@
         "offset": 0
       },
       "name": "b_Tail_05",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -748,19 +1047,29 @@
     "b_Tail_06": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -768,7 +1077,7 @@
         "offset": 0
       },
       "name": "b_Tail_06",
-      "springStiffness": 0,
+      "springStiffness": 0.1,
       "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
@@ -776,19 +1085,34 @@
     "b_Main": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -796,27 +1120,37 @@
         "offset": 0
       },
       "name": "b_Main",
-      "springStiffness": 0,
-      "type": "fixed",
+      "springStiffness": 0.1,
+      "type": "planar",
       "useDynamcis": false,
       "useLimits": false
     },
     "b_Main_intermediate_0": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -824,27 +1158,37 @@
         "offset": 0
       },
       "name": "b_Main_intermediate_0",
-      "springStiffness": 0,
-      "type": "fixed",
+      "springStiffness": 0.1,
+      "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_Main_intermediate_1": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -852,27 +1196,37 @@
         "offset": 0
       },
       "name": "b_Main_intermediate_1",
-      "springStiffness": 0,
-      "type": "fixed",
+      "springStiffness": 0.1,
+      "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_Main_intermediate_2": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -880,27 +1234,37 @@
         "offset": 0
       },
       "name": "b_Main_intermediate_2",
-      "springStiffness": 0,
-      "type": "fixed",
+      "springStiffness": 0.1,
+      "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_Main_intermediate_3": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -908,27 +1272,37 @@
         "offset": 0
       },
       "name": "b_Main_intermediate_3",
-      "springStiffness": 0,
-      "type": "fixed",
+      "springStiffness": 0.1,
+      "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     },
     "b_Main_intermediate_4": {
       "actuator": "passive",
       "axis": [
-        0,
-        1,
-        0
+        [
+          0,
+          1,
+          0
+        ]
       ],
       "dynamics": {
         "damping": 0,
         "friction": 0
       },
       "limit": {
-        "effort": 0,
-        "lower": 0,
-        "upper": 0,
-        "velocity": 0
+        "effort": [
+          0
+        ],
+        "lower": [
+          0
+        ],
+        "upper": [
+          0
+        ],
+        "velocity": [
+          0
+        ]
       },
       "mimic": {
         "joint": "",
@@ -936,8 +1310,8 @@
         "offset": 0
       },
       "name": "b_Main_intermediate_4",
-      "springStiffness": 0,
-      "type": "fixed",
+      "springStiffness": 0.1,
+      "type": "revolute",
       "useDynamcis": false,
       "useLimits": true
     }
@@ -945,310 +1319,310 @@
   "links": {
     "[link]b_L_Lobe_00::b_L_Lobe_01": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.03,
       "name": "[link]b_L_Lobe_00::b_L_Lobe_01",
       "radius ": 0.014999999664723873,
       "size": [
-        0.24973272699504995,
-        0.02,
-        0.02
+        0.024973272518779864,
+        0.05,
+        0.05
       ]
     },
     "[link]b_L_Lobe_01::b_L_Lobe_02": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.03,
       "name": "[link]b_L_Lobe_01::b_L_Lobe_02",
       "radius ": 0.014999999664723873,
       "size": [
-        0.19838013116707734,
-        0.02,
-        0.02
+        0.019838012590289212,
+        0.05,
+        0.05
       ]
     },
     "[link]b_L_Wing_00::b_L_Wing_01": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 1.24,
       "name": "[link]b_L_Wing_00::b_L_Wing_01",
       "radius ": 0.014999999664723873,
       "size": [
-        0.7632358063486819,
-        0.02,
-        0.02
+        0.07632357914480847,
+        0.05,
+        0.15
       ]
     },
     "[link]b_L_Wing_01::b_L_Wing_02": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.92,
       "name": "[link]b_L_Wing_01::b_L_Wing_02",
       "radius ": 0.014999999664723873,
       "size": [
-        0.7781171627064375,
-        0.02,
-        0.02
+        0.07781171923753165,
+        0.05,
+        0.15
       ]
     },
     "[link]b_L_Wing_02::b_L_Wing_03": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.42,
       "name": "[link]b_L_Wing_02::b_L_Wing_03",
       "radius ": 0.014999999664723873,
       "size": [
-        0.5397722565345849,
-        0.02,
-        0.02
+        0.05397722416130326,
+        0.05,
+        0.09
       ]
     },
     "[link]b_L_Wing_03::b_L_Wing_04": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.3,
       "name": "[link]b_L_Wing_03::b_L_Wing_04",
       "radius ": 0.014999999664723873,
       "size": [
-        0.33380381542630166,
-        0.02,
-        0.02
+        0.03338038077701692,
+        0.06,
+        0.06
       ]
     },
     "[link]b_L_Wing_04::b_L_Wing_05": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.12,
       "name": "[link]b_L_Wing_04::b_L_Wing_05",
       "radius ": 0.014999999664723873,
       "size": [
-        0.45639874792694574,
-        0.02,
-        0.02
+        0.04563987546492352,
+        0.05,
+        0.05
       ]
     },
     "[link]b_L_Wing_05::b_L_Wing_06": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.12,
       "name": "[link]b_L_Wing_05::b_L_Wing_06",
       "radius ": 0.014999999664723873,
       "size": [
-        0.2852005037272329,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Lobe_00::b_R_Lobe_01": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Lobe_00::b_R_Lobe_01",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.2497324825196864,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Lobe_01::b_R_Lobe_02": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Lobe_01::b_R_Lobe_02",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.198379964966287,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Wing_00::b_R_Wing_01": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Wing_00::b_R_Wing_01",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.7632358656639702,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Wing_01::b_R_Wing_02": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Wing_01::b_R_Wing_02",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.7781170332225387,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Wing_02::b_R_Wing_03": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Wing_02::b_R_Wing_03",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.5397721436248086,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Wing_03::b_R_Wing_04": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Wing_03::b_R_Wing_04",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.3338040809685798,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Wing_04::b_R_Wing_05": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Wing_04::b_R_Wing_05",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.45639889959435787,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_R_Wing_05::b_R_Wing_06": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_R_Wing_05::b_R_Wing_06",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.28520015076532845,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_Tail_00::b_Tail_01": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_Tail_00::b_Tail_01",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.4228289425373249,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_Tail_01::b_Tail_02": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_Tail_01::b_Tail_02",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.252834856510192,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_Tail_02::b_Tail_03": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_Tail_02::b_Tail_03",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.3243989646436449,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_Tail_03::b_Tail_04": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_Tail_03::b_Tail_04",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.35335692763340804,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_Tail_04::b_Tail_05": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_Tail_04::b_Tail_05",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.33429047465332346,
-        0.02,
-        0.02
-      ]
-    },
-    "[link]b_Tail_05::b_Tail_06": {
-      "isIntermediate": false,
-      "mass": 1,
-      "name": "[link]b_Tail_05::b_Tail_06",
-      "radius ": 0.014999999664723873,
-      "size": [
-        0.25688248872795966,
-        0.02,
-        0.02
+        0.02852005042882324,
+        0.03,
+        0.03
       ]
     },
     "[link]b_Main": {
       "isIntermediate": true,
-      "mass": 0.000001,
+      "mass": 0.3352088752056903,
       "name": "[link]b_Main",
-      "radius ": 0.019999999552965164,
+      "radius ": 0.05,
       "size": [
         0,
-        0.02,
-        0.02
+        0.05,
+        0.05
       ]
     },
     "[link]b_Main::b_L_Lobe_00": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.9,
       "name": "[link]b_Main::b_L_Lobe_00",
       "radius ": 0.014999999664723873,
       "size": [
-        1.3860514217577384,
-        0.02,
-        0.02
+        0.13860514149592093,
+        0.05,
+        0.05
       ]
     },
     "[link]b_Main::b_L_Wing_00": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.05,
       "name": "[link]b_Main::b_L_Wing_00",
       "radius ": 0.014999999664723873,
       "size": [
-        0.25296654112344824,
-        0.02,
-        0.02
+        0.025296653874678183,
+        0.05,
+        0.05
       ]
     },
     "[link]b_Main::b_R_Lobe_00": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.9,
       "name": "[link]b_Main::b_R_Lobe_00",
       "radius ": 0.014999999664723873,
       "size": [
-        1.3860510160892312,
-        0.02,
-        0.02
+        0.13860510360146622,
+        0.05,
+        0.05
       ]
     },
     "[link]b_Main::b_R_Wing_00": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.05,
       "name": "[link]b_Main::b_R_Wing_00",
       "radius ": 0.014999999664723873,
       "size": [
-        0.2529701103989167,
-        0.02,
-        0.02
+        0.025297010392843013,
+        0.05,
+        0.05
       ]
     },
     "[link]b_Main::b_Tail_00": {
       "isIntermediate": false,
-      "mass": 1,
+      "mass": 0.9,
       "name": "[link]b_Main::b_Tail_00",
       "radius ": 0.014999999664723873,
       "size": [
-        1.6773045063018799,
-        0.02,
-        0.02
+        0.167730450630188,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_R_Lobe_00::b_R_Lobe_01": {
+      "isIntermediate": false,
+      "mass": 0.03,
+      "name": "[link]b_R_Lobe_00::b_R_Lobe_01",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.02497324785232758,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_R_Lobe_01::b_R_Lobe_02": {
+      "isIntermediate": false,
+      "mass": 0.03,
+      "name": "[link]b_R_Lobe_01::b_R_Lobe_02",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.019837996341319584,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_R_Wing_00::b_R_Wing_01": {
+      "isIntermediate": false,
+      "mass": 1.24,
+      "name": "[link]b_R_Wing_00::b_R_Wing_01",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.07632358656642979,
+        0.05,
+        0.15
+      ]
+    },
+    "[link]b_R_Wing_01::b_R_Wing_02": {
+      "isIntermediate": false,
+      "mass": 0.91,
+      "name": "[link]b_R_Wing_01::b_R_Wing_02",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.07781170331277286,
+        0.05,
+        0.15
+      ]
+    },
+    "[link]b_R_Wing_02::b_R_Wing_03": {
+      "isIntermediate": false,
+      "mass": 0.42,
+      "name": "[link]b_R_Wing_02::b_R_Wing_03",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.05397721362089119,
+        0.05,
+        0.09
+      ]
+    },
+    "[link]b_R_Wing_03::b_R_Wing_04": {
+      "isIntermediate": false,
+      "mass": 0.3,
+      "name": "[link]b_R_Wing_03::b_R_Wing_04",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.03338040739291588,
+        0.06,
+        0.06
+      ]
+    },
+    "[link]b_R_Wing_04::b_R_Wing_05": {
+      "isIntermediate": false,
+      "mass": 0.12,
+      "name": "[link]b_R_Wing_04::b_R_Wing_05",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04563989058382694,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_R_Wing_05::b_R_Wing_06": {
+      "isIntermediate": false,
+      "mass": 0.12,
+      "name": "[link]b_R_Wing_05::b_R_Wing_06",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.028520015375663416,
+        0.03,
+        0.03
+      ]
+    },
+    "[link]b_Tail_00::b_Tail_01": {
+      "isIntermediate": false,
+      "mass": 0.055,
+      "name": "[link]b_Tail_00::b_Tail_01",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.04228289425373249,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_Tail_01::b_Tail_02": {
+      "isIntermediate": false,
+      "mass": 0.055,
+      "name": "[link]b_Tail_01::b_Tail_02",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.0252834856510192,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_Tail_02::b_Tail_03": {
+      "isIntermediate": false,
+      "mass": 0.055,
+      "name": "[link]b_Tail_02::b_Tail_03",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.03243989497424837,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_Tail_03::b_Tail_04": {
+      "isIntermediate": false,
+      "mass": 0.055,
+      "name": "[link]b_Tail_03::b_Tail_04",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.035335693508398866,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_Tail_04::b_Tail_05": {
+      "isIntermediate": false,
+      "mass": 0.055,
+      "name": "[link]b_Tail_04::b_Tail_05",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.033429048955448466,
+        0.05,
+        0.05
+      ]
+    },
+    "[link]b_Tail_05::b_Tail_06": {
+      "isIntermediate": false,
+      "mass": 0.055,
+      "name": "[link]b_Tail_05::b_Tail_06",
+      "radius ": 0.014999999664723873,
+      "size": [
+        0.025688249617854028,
+        0.05,
+        0.05
       ]
     }
   },
