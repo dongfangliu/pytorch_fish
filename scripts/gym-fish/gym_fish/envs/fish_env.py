@@ -312,7 +312,6 @@ class FishEnv(gym.Env):
                 vel_local,
                 
 #                 self.last_action,
-                np.array([self.cur_budget/(self.init_budget+1e-4)]),
                 
                 joint_pos/0.52,
                 joint_vel/10,
