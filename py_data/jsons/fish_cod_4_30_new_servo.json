@@ -20,19 +20,27 @@
         "head": {
             "actuator": "passive",
             "axis": [
-                0.0,
+                [
                 1.0,
+                0.0,
                 0.0
+                    ]
+                ,
+                                [
+                0.0,
+                0.0,
+                0.1
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 0.0,
-                "lower": 0.0,
-                "upper": 0.0,
-                "velocity": 0.0
+                "effort": [0.0],
+                "lower": [0.0],
+                "upper": [0.0],
+                "velocity": [0.0]
             },
             "mimic": {
                 "joint": "",
@@ -48,22 +56,24 @@
         "spine": {
             "actuator": "servo",
             "axis": [
+               [
                 0.0,
                 1.0,
                 0.0
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 20000.0,
-                "lower": -0.13,
-                "upper": 0.13,
-                "velocity": 10.0
+                "effort": [20000.0],
+                "lower": [-0.13],
+                "upper": [0.13],
+                "velocity": [10.0]
             },
             "name": "spine",
-            "springStiffness": 1,
+            "springStiffness": 0,
             "type": "revolute",
             "useDynamcis": false,
             "useLimits": true
@@ -71,22 +81,24 @@
         "spine01": {
             "actuator": "servo",
             "axis": [
+               [
                 0.0,
                 1.0,
                 0.0
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 20000.0,
-                "lower": -0.26,
-                "upper": 0.26,
-                "velocity": 10.0
+                "effort": [20000.0],
+                "lower": [-0.26],
+                "upper": [0.26],
+                "velocity": [10.0]
             },
             "name": "spine01",
-            "springStiffness": 1,
+            "springStiffness": 0,
             "type": "revolute",
             "useDynamcis": false,
             "useLimits": true
@@ -94,22 +106,24 @@
         "spine02": {
             "actuator": "servo",
             "axis": [
+               [
                 0.0,
                 1.0,
                 0.0
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 20000.0,
-                "lower": -0.52,
-                "upper": 0.52,
-                "velocity": 1.0
+                "effort": [20000.0],
+                "lower": [-0.52],
+                "upper": [0.52],
+                "velocity": [10.0]
             },
             "name": "spine02",
-            "springStiffness": 1,
+            "springStiffness": 0,
             "type": "revolute",
             "useDynamcis": false,
             "useLimits": true
@@ -117,22 +131,24 @@
         "spine03": {
             "actuator": "servo",
             "axis": [
+               [
                 0.0,
                 1.0,
                 0.0
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 20000.0,
-                "lower": -0.52,
-                "upper": 0.52,
-                "velocity": 10.0
+                "effort": [20000.0],
+                "lower": [-0.52],
+                "upper": [0.52],
+                "velocity": [10.0]
             },
             "name": "spine03",
-            "springStiffness": 1,
+            "springStiffness": 0,
             "type": "revolute",
             "useDynamcis": false,
             "useLimits": true
@@ -140,19 +156,21 @@
         "tail_start": {
             "actuator": "passive",
             "axis": [
+               [
                 0.0,
                 1.0,
                 0.0
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 0.0,
-                "lower": -0.0,
-                "upper": 0.0,
-                "velocity": 0.0
+                "effort": [0.0],
+                "lower": [0.0],
+                "upper": [0.0],
+                "velocity": [0.0]
             },
             "mimic": {
                 "joint": "",
@@ -160,7 +178,7 @@
                 "offset": 0.0
             },
             "name": "tail_start",
-            "springStiffness": 1,
+            "springStiffness": 0,
             "type": "revolute",
             "useDynamcis": false,
             "useLimits": true
@@ -168,19 +186,21 @@
         "tail_end": {
             "actuator": "passive",
             "axis": [
+               [
                 0.0,
                 1.0,
                 0.0
+                    ]
             ],
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
             },
             "limit": {
-                "effort": 0.0,
-                "lower": 0.0,
-                "upper": 0.0,
-                "velocity": 0.0
+                "effort": [0.0],
+                "lower": [0.0],
+                "upper": [0.0],
+                "velocity": [0.0]
             },
             "mimic": {
                 "joint": "",
