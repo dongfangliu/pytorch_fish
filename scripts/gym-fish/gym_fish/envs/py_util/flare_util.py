@@ -8,7 +8,7 @@ from pathlib import Path
 ################################ START  WRITE JSON WRAPPER #################################
 #############################################################################################
 class fluid_param(json_util.json_support):
-    normal_attrs = ['x0', 'y0', 'z0', 'width', 'height', 'depth', 'N', 'l0p', 'u0k', 'u0p', 'rou0p', 'visp','pml_width','slip_ratio']
+    normal_attrs = ['x0', 'y0', 'z0', 'width', 'height','dx', 'depth', 'u0k', 'u0p', 'rou0p', 'visp','pml_width','slip_ratio']
     enum_attrs = ['setup_mode']
 
     def __init__(self):
@@ -31,6 +31,23 @@ class fluid_param(json_util.json_support):
             if hasattr(self.data, attr):
                 d[attr] = int(getattr(self.data, attr))
         return d
+    
+class multi_fluid_param(json_util.json_support):
+    def __init__(self):
+        super().__init__()
+        self.flows_param = []
+    def to_dict(self) ->dict:
+        d = {}
+        d['flows'] = [self.flows_param[i].to_dict() for i in range(len(self.flows_param))]
+        return d
+    def from_dict(self,d:dict):
+        if 'flows' not in d.keys():
+            return
+        self.flows_param.clear()
+        for flow_dict in d['flows']:
+            param  = fluid_param()
+            param.from_dict(flow_dict)
+            self.flows_param.append(param)
 
 
 class path_param(json_util.json_support):
