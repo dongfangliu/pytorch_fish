@@ -23,7 +23,7 @@ class buoyancy_control_unit:
         self.volume = self.volume_init
     @property
     def diff_from_init(self)->float:
-        return self.volume-self.volume_init
+        return self.volume-self.volume_init 
 
 class underwater_agent:
     def __init__(self,skeleton_data:flare_util.skeleton_data) -> None:
