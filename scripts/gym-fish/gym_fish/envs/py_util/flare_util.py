@@ -96,11 +96,12 @@ class path_data(json_util.json_support):
 
 
 class skeleton_param(json_util.json_support):
-    def __init__(self, skeleton_file: str="", sample_num: int=5000, offset_pos: [float, float, float] = [0, 0, 0],
+    def __init__(self, skeleton_file: str="", sample_num: int=5000,density:float=1028, offset_pos: [float, float, float] = [0, 0, 0],
                  offset_rotation: [float, float, float] = [0, 0, 0]):
         super().__init__()
         self.skeleton_file = str(Path(skeleton_file).resolve())
         self.sample_num = sample_num
+        self.density = density
         self.offset_pos = offset_pos
         self.offset_rotation = offset_rotation
         self.offset_scale = [1, 1, 1]
@@ -116,31 +117,33 @@ class skeleton_param(json_util.json_support):
 
 class skeleton_data(json_util.json_support):
 
-    def __init__(self, skeleton_setting: skeleton_param=None,gpuId:int = 0):
+    def __init__(self, param: skeleton_param=None,gpuId:int = 0):
         super().__init__()
-        self.skeleton_setting = skeleton_setting
+        self.param = param
         self.skeleton=None
         self.dynamics =None
         self.gpuId = gpuId
-        if skeleton_setting!=None:
+        if param!=None:
             self.init_from_setting()
     def init_from_setting(self):
-        self.skeleton = fl.skeletonFromJson(self.skeleton_setting.skeleton_file,self.gpuId)
+        self.skeleton = fl.skeletonFromJson(self.param.skeleton_file,self.gpuId)
         self.dynamics = fl.make_skDynamics(self.skeleton,
-                                            self.skeleton_setting.sample_num,
+                                            self.param.sample_num,
                                             self.gpuId,
-                                           self.skeleton_setting.offset_pos,
-                                            self.skeleton_setting.offset_rotation,
-                                            self.skeleton_setting.offset_scale
+                                           self.param.offset_pos,
+                                            self.param.offset_rotation,
+                                            self.param.offset_scale
                                             )
+        self.density = self.param.density
+        
     def to_dict(self) ->dict:
-        if self.skeleton_setting!=None:
-            return self.skeleton_setting.to_dict()
+        if self.param!=None:
+            return self.param.to_dict()
         else:
             return {}
     def from_dict(self,d:dict):
-        self.skeleton_setting = skeleton_param()
-        self.skeleton_setting.from_dict(d)
+        self.param = skeleton_param()
+        self.param.from_dict(d)
         self.init_from_setting()
 
 
