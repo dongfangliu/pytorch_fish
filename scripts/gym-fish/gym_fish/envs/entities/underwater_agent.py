@@ -4,8 +4,17 @@ from ..py_util import flare_util
 from ..lib import pyflare as fl
 import numpy as np
 
-class fluid_sensor(fl.Marker):
-    pass
+
+
+class fluid_sensors:
+    def __init__(self,sensors:fl.Markers) -> None:
+        self.pos = sensors.getMarkersPos()
+        self.normal = sensors.getMarkersNormal()
+        self.velocity = sensors.getMarkersVelocity()
+        self.pressure = sensors.getMarkersPressure()
+
+
+    
 
 class buoyancy_control_unit:
     def __init__(self,volume_init:float=1,volume_min:float=0.1,volume_max:float=1.3,control_min:float=0.02,control_max:float=0.1) -> None:
@@ -29,6 +38,7 @@ class underwater_agent:
     def __init__(self,skeleton_data:flare_util.skeleton_data) -> None:
         self._dynamics = skeleton_data.dynamics
         self.body_density = skeleton_data.density
+        
     def _setup_bcu(self,volume_min:float,volume_max:float,control_min:float,control_max:float):
         self.bcu = buoyancy_control_unit(1,volume_min,volume_max,control_min,control_max)
         water_den = 1000

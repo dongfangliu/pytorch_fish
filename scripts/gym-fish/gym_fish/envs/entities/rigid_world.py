@@ -13,4 +13,7 @@ class rigid_world:
     @property
     def agent_num(self):
         return len(self._rigid_data.skeletons)
+    @property
+    def dt(self):
+        return self._rigid_data.rigidWorld.getTimeStep()
     
