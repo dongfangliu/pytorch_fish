@@ -1,3 +1,4 @@
+from typing import List
 from ..lib import pyflare as fl
 from . import json_util
 from . import trajectory_util
@@ -45,7 +46,7 @@ class path_param(json_util.json_support):
             self.path_sample_num=0
 
 
-    def setPoints(self, points: [fl.trajectoryPoint3d]):
+    def setPoints(self, points: List[fl.trajectoryPoint3d]):
         self.source_file = None
         self.points = points
 
@@ -96,8 +97,8 @@ class path_data(json_util.json_support):
 
 
 class skeleton_param(json_util.json_support):
-    def __init__(self, skeleton_file: str="", sample_num: int=5000,density:float=1028, offset_pos: [float, float, float] = [0, 0, 0],
-                 offset_rotation: [float, float, float] = [0, 0, 0]):
+    def __init__(self, skeleton_file: str="", sample_num: int=5000,density:float=1028, offset_pos: List[float] = [0, 0, 0],
+                 offset_rotation: List[float] = [0, 0, 0]):
         super().__init__()
         self.skeleton_file = str(Path(skeleton_file).resolve())
         self.sample_num = sample_num

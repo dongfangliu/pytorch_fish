@@ -54,8 +54,8 @@ class underwater_agent:
     def mass(self):
         return self._dynamics.getMass()
     @property
-    def dofs(self):
-        return self._dynamics.getNumDofs()
+    def ctrl_dofs(self):
+        return self._dynamics.getNumDofs()+1
     @property
     def com(self):
         return self._dynamics.getCOM()
@@ -93,10 +93,16 @@ class underwater_agent:
     def accelerations(self,include_root:bool=False):
         return self._dynamics.accelerations(include_root)    
     @property
-    def current_commands(self):
-        return self._dynamics.getCommands()
+    def action_upper_limits(self):
+        return np.append(self._dynamics.getForceUpperLimits(),self.bcu.control_max)
+    @property
+    def action_lower_limits(self):
+        return np.append(self._dynamics.getForceLowerLimits(),self.bcu.control_min)
     def set_commands(self, commands:np.array):
-        self._dynamics.setCommands(commands)
+        self._dynamics.setCommands(commands[0:-1])
+        self.bcu.change(commands[-1])
+        self.apply_buoyancy_force()
+        self.last_commands = commands
     # This will make the velocity which is to be used in coupling behavior becomes relative to this frame,
     # this is highly important for make all agents have a common ref frame when they undergoes the same fluid domain
     def set_ref_frame(self,frame:fl.skFrame):

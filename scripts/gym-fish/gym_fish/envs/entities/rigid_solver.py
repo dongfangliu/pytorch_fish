@@ -11,11 +11,15 @@ class rigid_solver:
         self._agents = [underwater_agent(skeleton_data=sk) for sk in rigid_data.skeletons]
     def get_agent(self,i):
         return self._agents[i]
+    def get_action_upper_limits(self):
+        return np.concatenate(( a.action_upper_limits for a in self._agents))
+    def get_action_lower_limits(self):
+        return np.concatenate(( a.action_lower_limits for a in self._agents))
     def set_commands(self,commands:np.array):
         cmd_offset= 0
         for agent in self._agents:
-            agent.set_commands(commands[cmd_offset:cmd_offset+agent.dofs])
-            cmd_offset = cmd_offset+agent.dofs
+            agent.set_commands(commands[cmd_offset:cmd_offset+agent.ctrl_dofs])
+            cmd_offset = cmd_offset+agent.ctrl_dofs
     @property 
     def gravity(self):
         return self._rigid_data.gravity
