@@ -12,8 +12,15 @@ class coupled_sim:
     @property
     def time(self):
         return self.rigid_world.time
+    @property
+    def iter_count(self):
+        return self.fluid_solver.iter_count
+    @property
+    def iters_at_framerate(self,framerate:int=30):
+        return self.fluid_solver.iters_at_framerate
     def save(self,save_objects:bool=False,save_fluid:bool=False,suffix:str="0000"):
         self.fluid_solver.save(save_fluid=save_fluid,save_objects=save_objects,suffix=suffix)
-    def step(self,commands:np.array):
+    def iter(self,commands:np.array):
         self.rigid_solver.set_commands(commands)
-        self._simulator.step()
+        self._simulator.iter()
+    

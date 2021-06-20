@@ -15,7 +15,13 @@ class fluid_solver:
         self._simulator.attachWorld(_rigid_solver._rigid_world)
         self._simulator.commitInit()
         self.ok = True
-    def step(self):
+    @property
+    def iter_count(self):
+        return self._simulator.getIterNum()
+    @property
+    def iters_at_framerate(self,framerate:int=30):
+        return self._simulator.getIterPerSave(framerate)
+    def iter(self):
         if self.ok==False:
             print("fluid solver is not ok to run")
             return
