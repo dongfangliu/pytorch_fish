@@ -1,38 +1,50 @@
-import  numpy as np
-import  matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+
+import matplotlib.pyplot as plt
 import os
-print(os.getcwd())
-random_pos_radius =(0.4,0,0.4)
-pos_cov = np.reshape([random_pos_radius[0],0,0,
-                      0,random_pos_radius[1],0,
-                      0,0,random_pos_radius[2]],
-                     (3,3))
-random_vel_mean  =  0
-random_vel_std = 2
-random_orien_mean = 0
-random_orien_std = np.pi/12
-random_sample_num=100
-delta_orientations = np.random.normal(random_orien_mean, random_orien_std, random_sample_num)
+import time
+import gym
+import numpy as np
+import math
+from pathlib import Path
 
-# vels = np.random.normal(random_vel_mean,random_vel_std,random_sample_num)
-# plt.figure()
-# plt.hist(vels)
-# plt.show()
+import gym_fish
+from gym_fish.envs.lib import pyflare as fl
 
-# orientations  =[ y_rotation(np.array([1,0,0]), ori) for ori in delta_orientations]
-#
-# orientations = np.array(orientations)
-# fig =plt.figure()
-# ax = fig.add_subplot(111, projection='3d')
-# ax.quiver(0,0,0,orientations[:,0],orientations[:,1],orientations[:,2], length=0.1, normalize=True)
-#
-# ax.quiver(0,0,0,1,0,0, length=0.3)
-# ax.set_xlabel('variable X')
-# ax.set_ylabel('variable Y')
-# ax.set_zlabel('variable Z')
-# plt.show()
-import  py_util.np_util
-# py_util.np_util.all_npz_to_one("/home/liuwj/PycharmProjects/testPylib/pydata/train_data/sampled_files","collected_oa")
-aa = np.load("/pydata/train_data/collected_oa.npz")
-print(aa['observations'].shape[0]==aa['actions'].shape[0])
+gpuId = 0
+
+control_dt=0.2
+theta = np.array([0,0])
+radius=1.0
+max_time = 10
+action_max= 10
+done_dist = 0.15
+dist_distri_param =np.array([0,0.0])
+
+# couple_mode = fl.COUPLE_MODE.EMPIRICAL
+couple_mode =  fl.COUPLE_MODE.TWO_WAY
+
+ratio = 0.005/control_dt*(max_time/10)
+use_com=False
+
+wc = 0.0*np.array([1.0,0.5])
+wp = 1.0*np.array([0.0,1.0])
+wa = 0.5
+
+# env=gym.make('fish-basic-v0',
+#                   gpuId=gpuId,
+#                         couple_mode=couple_mode,
+#              control_dt=control_dt,
+#                         radius=radius,
+#                        theta=theta,action_max=action_max,
+#                         max_time=max_time,
+#                         wp=wp,wc=wc,wa=wa,
+#                        done_dist=done_dist,dist_distri_param=dist_distri_param
+#                    )
+# action = env.action_space.sample()
+# env.step(action)
+pass
+env2= gym.make('fish-vel-v0')
+action = env2.action_space.sample()
+env2.step(action)
+
+
