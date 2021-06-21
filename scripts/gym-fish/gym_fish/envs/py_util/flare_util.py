@@ -2,9 +2,7 @@ from typing import List
 from ..lib import pyflare as fl
 from . import json_util
 from . import trajectory_util
-from pathlib import Path
-
-
+import os
 #############################################################################################
 ################################ START  WRITE JSON WRAPPER #################################
 #############################################################################################
@@ -16,7 +14,7 @@ class fluid_param(json_util.json_support):
         super().__init__()
         self.data = fl.make_simParams()
 
-    def from_dict(self, d: dict):
+    def from_dict(self, d: dict,filefolder:str=""):
         for attr in self.normal_attrs :
             if hasattr(self.data, attr) and (attr in d.keys()):
                 setattr(self.data, attr, d[attr])
@@ -58,11 +56,11 @@ class path_param(json_util.json_support):
             d['points'] = [[x.data[0], x.data[1], x.data[2]] for x in self.points]
         return d
 
-    def from_dict(self, d: dict):
+    def from_dict(self, d: dict,filefolder:str=""):
         if 'path_sample_num' in d.keys():
             self.path_sample_num = d['path_sample_num']
         if 'source_file' in d.keys():
-            path_skeletonFile = Path(d['source_file']).resolve()
+            path_skeletonFile = os.path.abspath(os.path.join(filefolder,d['source_file']))
             self.source_file = str(path_skeletonFile)
             self.points = trajectory_util.trajectoryPoints_file(self.source_file)
         else:
@@ -90,7 +88,7 @@ class path_data(json_util.json_support):
     def to_dict(self) -> dict:
         return self.path_setting.to_dict()
 
-    def from_dict(self, d: dict):
+    def from_dict(self, d: dict,filefolder:str=""):
         self.path_setting = path_param()
         self.path_setting.from_dict(d)
         self.setPoints(self.path_setting.points, self.path_setting.path_sample_num)
@@ -100,7 +98,7 @@ class skeleton_param(json_util.json_support):
     def __init__(self, skeleton_file: str="", sample_num: int=5000,density:float=1028, offset_pos: List[float] = [0, 0, 0],
                  offset_rotation: List[float] = [0, 0, 0]):
         super().__init__()
-        self.skeleton_file = str(Path(skeleton_file).resolve())
+        self.skeleton_file =skeleton_file
         self.sample_num = sample_num
         self.density = density
         self.bladder_volume_min = 0
@@ -114,9 +112,10 @@ class skeleton_param(json_util.json_support):
     def to_dict(self) -> dict:	
         return self.__dict__
 
-    def from_dict(self, d: dict):
+    def from_dict(self, d: dict,filefolder:str=""):
         self.__dict__ = d
-        self.skeleton_file = str(Path(self.skeleton_file ).resolve())
+        skeleton_file_path = os.path.abspath(os.path.join(filefolder,self.skeleton_file))
+        self.skeleton_file = skeleton_file_path
         
 
 
@@ -154,9 +153,9 @@ class skeleton_data(json_util.json_support):
             return self.param.to_dict()
         else:
             return {}
-    def from_dict(self,d:dict):
+    def from_dict(self,d:dict,filefolder:str=""):
         self.param = skeleton_param()
-        self.param.from_dict(d)
+        self.param.from_dict(d,filefolder)
         self.init_from_setting()
 
 
@@ -179,7 +178,7 @@ class rigid_data(json_util.json_support):
         d['skeletons'] = [self.skeletons[i].to_dict() for i in range(len(self.skeletons))]
         d['gravity'] = self.gravity
         return d
-    def from_dict(self,d:dict):
+    def from_dict(self,d:dict,filefolder:str=""):
         if  'gravity' in d.keys():
             self.gravity = d['gravity']
         else:
@@ -191,7 +190,7 @@ class rigid_data(json_util.json_support):
         self.skeletons.clear()
         for skeleton_dict in d['skeletons']:
             sk  = skeleton_data(None,self.gpuId)
-            sk.from_dict(skeleton_dict)
+            sk.from_dict(skeleton_dict,filefolder)
             self.rigidWorld.addSkeleton(sk.dynamics)
             self.skeletons.append(sk)
 

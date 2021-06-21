@@ -1,4 +1,5 @@
 from typing import Any, Dict, OrderedDict, Tuple
+import abc
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
@@ -59,12 +60,16 @@ class coupled_env(gym.Env):
         done= self._get_done()
         reward,info = self._get_reward(obs,action)
         return obs,reward,done,info
+    @abc.abstractmethod
     def _step(self, action)->None:
         pass
+    @abc.abstractmethod
     def _get_obs(self)->np.array:
         pass
+    @abc.abstractmethod
     def _get_reward(self,cur_obs,cur_action)->Tuple[float,Dict[Any]]:
         pass
+    @abc.abstractmethod
     def _get_done(self)->bool:
         pass
     
