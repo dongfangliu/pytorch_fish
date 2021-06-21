@@ -814,5 +814,5 @@
     }
   },
   "markers_placements": [],
-  "model_file": "./testObjs/flatfish_small.fbx"
+  "model_file": "../fbx_models/flatfish_small.fbx"
 }

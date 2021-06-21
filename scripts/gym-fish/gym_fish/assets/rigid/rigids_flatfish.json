@@ -3,6 +3,11 @@
         {
             "skeleton_file": "../agents/flatfish.json",
             "sample_num": 10000,
+            "density":1080,
+            "bladder_volume_min":0.4,
+            "bladder_volume_max":1,
+            "bladder_volume_control_min":0.02,
+            "bladder_volume_control_max":0.1,
             "offset_pos": [
                 0,
                 0,

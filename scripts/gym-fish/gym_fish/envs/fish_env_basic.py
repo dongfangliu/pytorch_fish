@@ -16,6 +16,7 @@ def get_full_path(asset_path):
     if not os.path.exists(full_path):
         raise IOError("File %s does not exist" % full_path)
     return full_path
+
 class FishEnvBasic(coupled_env):
     def __init__(self, 
                 control_dt=0.2,
@@ -35,6 +36,12 @@ class FishEnvBasic(coupled_env):
                 couple_mode: fl.COUPLE_MODE = fl.COUPLE_MODE.TWO_WAY) -> None:
         fluid_json = get_full_path(fluid_json)
         rigid_json = get_full_path(rigid_json)
+        if data_folder.startswith("/"):
+            data_folder = os.path.abspath(data_folder)
+        else:
+            data_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), data_folder))
+        if not os.path.exists(data_folder):
+            os.makedirs(data_folder)
         self.wc = wc
         self.wp = wp
         self.wa = wa
@@ -48,7 +55,7 @@ class FishEnvBasic(coupled_env):
         self.training = True
         # use parent's init function to init default env data, like action space and observation space, also init dynamics
         super().__init__(fluid_json, rigid_json, gpuId, couple_mode=couple_mode)
-        self.simulator.fluid_solver.set_savefolder(pathlib.Path(data_folder).resolve())
+        self.simulator.fluid_solver.set_savefolder(data_folder.resolve())
 
 
     def _step(self, action) -> None:

@@ -556,5 +556,5 @@
         }
     },
     "markers_placements": [],
-    "model_file": "./testObjs/morayeel.fbx"
+    "model_file": "../fbx_models/morayeel.fbx"
 }

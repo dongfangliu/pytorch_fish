@@ -1627,5 +1627,5 @@
         }
     },
     "markers_placements": [],
-    "model_file": "./testObjs/mentaray.fbx"
+    "model_file": "../fbx_models/mentaray.fbx"
 }
