@@ -72,7 +72,9 @@ class coupled_env(gym.Env):
     @abc.abstractmethod
     def _get_done(self)->bool:
         pass
-    
+    @abc.abstractmethod
+    def reset(self) ->np.array:
+        pass
 
 
 
