@@ -8,10 +8,10 @@ class coupled_sim:
         self.fluid_solver.attach(self.rigid_solver)
     @property
     def dt(self):
-        return self.rigid_world.dt
+        return self.rigid_solver.dt
     @property
     def time(self):
-        return self.rigid_world.time
+        return self.rigid_solver.time
     @property
     def iter_count(self):
         return self.fluid_solver.iter_count
@@ -22,5 +22,5 @@ class coupled_sim:
         self.fluid_solver.save(save_fluid=save_fluid,save_objects=save_objects,suffix=suffix)
     def iter(self,commands:np.array):
         self.rigid_solver.set_commands(commands)
-        self._simulator.iter()
+        self.fluid_solver.iter()
     

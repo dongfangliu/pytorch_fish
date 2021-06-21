@@ -1,7 +1,7 @@
 from numpy.core.arrayprint import _void_scalar_repr
 from numpy.lib.function_base import select
-from ..py_util import flare_util
-from ..lib import pyflare as fl
+from gym_fish.envs.py_util import flare_util
+from gym_fish.envs.lib import pyflare as fl
 import numpy as np
 from .agent_basics import *
 
@@ -36,7 +36,7 @@ class underwater_agent:
         self._dynamics = skeleton_data.dynamics
         self.body_density = skeleton_data.density
         self.joints = {j.getName():agent_joint(j) for j in self._dynamics.getJoints()}
-        self.links = {l.getName():agent_link(l) for l in self._dynamics.getLinks()}
+        self.links = {l.getName():agent_link(l) for l in self._dynamics.getLinks() if l.getName()!='World' and l.getName()!='simple_frame'}
         self._setup_bcu(skeleton_data.bladder_volume_min,skeleton_data.bladder_volume_max,skeleton_data.bladder_volume_control_min,skeleton_data.bladder_volume_control_max)
     def _setup_bcu(self,bladder_volume_min:float,bladder_volume_max:float,control_min:float,control_max:float):
         self.bcu = buoyancy_control_unit(1,bladder_volume_min,bladder_volume_max,control_min,control_max)
@@ -110,4 +110,4 @@ class underwater_agent:
     def apply_buoyancy_force(self):
         a = self.buoyancy_force/self.mass
         for l in self.links.values():
-            l.apply_force(np.array(0,l.mass*a,0))
+            l.apply_force(np.array([0,l.mass*a,0]))

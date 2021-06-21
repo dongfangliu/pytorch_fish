@@ -1,8 +1,8 @@
-from ..py_util import flare_util
-from ..lib import pyflare as fl
+
+from gym_fish.envs.py_util import flare_util
+from gym_fish.envs.lib import pyflare as fl
 from .rigid_solver import rigid_solver
 import numpy as np
-from pathlib import Path
 import os
 import math
 
@@ -27,11 +27,11 @@ class fluid_solver:
             return
         self._simulator.step(self.couple_mode)
     def set_savefolder(self,folder_path:str='./data'):
-        self._simulator.mainDataFolderPath = str(Path(folder_path).resolve())
+        self._simulator.mainDataFolderPath = str(folder_path)
         self.dataPath = {}
-        self.dataPath["fluid"] = str(Path(self._simulator.mainDataFolderPath + self._simulator.fluidFolderName + '/').resolve())
-        self.dataPath["objects"] = str(Path(self._simulator.mainDataFolderPath + self._simulator.objectsFolderName + '/').resolve())
-        self.dataPath["trajectory"] = str(Path(self._simulator.mainDataFolderPath + 'Trajectory/').resolve())
+        self.dataPath["fluid"] = str(self._simulator.mainDataFolderPath + self._simulator.fluidFolderName + '/')
+        self.dataPath["objects"] = str(self._simulator.mainDataFolderPath + self._simulator.objectsFolderName + '/')
+        self.dataPath["trajectory"] = str(self._simulator.mainDataFolderPath + 'Trajectory/')
         if not os.path.exists(self._simulator.mainDataFolderPath):
             os.makedirs(self._simulator.mainDataFolderPath)
         for p in self.dataPath.values():

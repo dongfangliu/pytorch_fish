@@ -1,5 +1,6 @@
 
-from ..py_util import flare_util
+
+from gym_fish.envs.py_util import flare_util
 import numpy as np
 class pose:
     def __init__(self,position:np.array = np.array([0,0,0]),orientation:np.array = np.array([0,0,0]) ) -> None:

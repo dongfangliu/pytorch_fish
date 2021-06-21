@@ -34,7 +34,7 @@ class rigid_solver:
         return len(self._agents)
     @property
     def dt(self):
-        return self._rigid_world.getTimeStep()
+        return self._rigid_world.getTimestep()
     @property
     def time(self):
         return self._rigid_world.time

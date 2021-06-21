@@ -1,7 +1,7 @@
 from numpy.core.arrayprint import _void_scalar_repr
 from numpy.lib.function_base import select
-from ..py_util import flare_util
-from ..lib import pyflare as fl
+from gym_fish.envs.py_util import flare_util
+from gym_fish.envs.lib import pyflare as fl
 import numpy as np
 
 class agent_joint:
