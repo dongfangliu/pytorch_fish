@@ -97,7 +97,7 @@ class underwater_agent:
         return np.append(self._dynamics.getForceUpperLimits(),self.bcu.control_max)
     @property
     def action_lower_limits(self):
-        return np.append(self._dynamics.getForceLowerLimits(),self.bcu.control_min)
+        return np.append(self._dynamics.getForceLowerLimits(), self.bcu.control_min)
     def set_commands(self, commands:np.array):
         self._dynamics.setCommands(commands[0:-1])
         self.bcu.change(commands[-1])

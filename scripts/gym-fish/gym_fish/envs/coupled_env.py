@@ -26,14 +26,16 @@ def convert_observation_to_space(observation):
 class coupled_env(gym.Env):
     def __init__(self,fluid_json:str,rigid_json:str,gpuId:int,couple_mode:fl.COUPLE_MODE =fl.COUPLE_MODE.TWO_WAY) -> None:
         super().__init__()
+        # here init dynamics ,action_space and observation space
         self.fluid_json =fluid_json
         self.rigid_json = rigid_json
         self.gpuId =  gpuId
         self.couple_mode  = couple_mode
         self.resetDynamics()
-        self.seed()        
-        self.action_space = self._get_action_space() 
-        self.observation_space = convert_observation_to_space(self._get_obs())
+        self.seed()
+        _obs = self.reset()
+        self.action_space = self._get_action_space()
+        self.observation_space = convert_observation_to_space(_obs)
 
     def resetDynamics(self):
         fluid_param =fl_util.fluid_param()
@@ -50,7 +52,9 @@ class coupled_env(gym.Env):
         return spaces.Box(low = low,high=high,shape=low.shape)
     def close(self) -> None:
         del self.simulator
-
+    @abc.abstractmethod
+    def _update_state(self)->None:
+        pass
     def seed(self, seed=None):
         self.np_random, seed = gym.utils.seeding.np_random(seed)
         return [seed]
@@ -65,9 +69,10 @@ class coupled_env(gym.Env):
         pass
     @abc.abstractmethod
     def _get_obs(self)->np.array:
+        self._update_state()
         pass
     @abc.abstractmethod
-    def _get_reward(self,cur_obs,cur_action)->Tuple[float,Dict[Any]]:
+    def _get_reward(self,cur_obs,cur_action):
         pass
     @abc.abstractmethod
     def _get_done(self)->bool:

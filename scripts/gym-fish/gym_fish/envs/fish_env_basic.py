@@ -25,16 +25,16 @@ class FishEnvBasic(coupled_env):
                 action_max = 5,
                 max_time = 10,
                 done_dist=0.1,
+                radius = 1,
                 theta = np.array([-45,45]),
                 dist_distri_param =np.array([0,0.5]),
                 data_folder = "./data/vis_data/",
-                fluid_json: str='assets/fluid/fluid_param_0.5.json',
-                rigid_json: str='assets/rigids/rigids_4_30_new.json',
+                fluid_json: str='../assets/fluid/fluid_param_0.5.json',
+                rigid_json: str='../assets/rigid/rigids_4_30_new.json',
                 gpuId: int=0,
                 couple_mode: fl.COUPLE_MODE = fl.COUPLE_MODE.TWO_WAY) -> None:
         fluid_json = get_full_path(fluid_json)
         rigid_json = get_full_path(rigid_json)
-        super().__init__(fluid_json, rigid_json, gpuId, couple_mode=couple_mode)
         self.wc = wc
         self.wp = wp
         self.wa = wa
@@ -44,19 +44,21 @@ class FishEnvBasic(coupled_env):
         self.control_dt=control_dt
         self.action_max = action_max
         self.max_time = max_time
+        self.radius = radius
         self.training = True
+        # use parent's init function to init default env data, like action space and observation space, also init dynamics
+        super().__init__(fluid_json, rigid_json, gpuId, couple_mode=couple_mode)
         self.simulator.fluid_solver.set_savefolder(pathlib.Path(data_folder).resolve())
-        self._update_state()
+
 
     def _step(self, action) -> None:
         t = 0
         while t<self.control_dt:
             self.simulator.iter(action)
-            self._update_state()
             t = t+self.simulator.dt
             if(self._get_done() and not self.training):
                 break
-    def _get_reward(self, cur_obs, cur_action) -> Tuple[float, Dict[Any]]:
+    def _get_reward(self, cur_obs, cur_action) :
         dist_potential_old = self.dist_potential
         self.dist_potential = self.calc__dist_potential()
         dist_reward = self.wp[0]*np.exp(-3* (self.walk_target_dist**2))+self.wp[1]*float(self.dist_potential - dist_potential_old)
@@ -124,16 +126,19 @@ class FishEnvBasic(coupled_env):
         return -self.dist_to_path /self.control_dt/4
 
     def set_task(self,theta,dist):
+        agent = self.simulator.rigid_solver.get_agent(0)
+        self.init_pos = agent.com
         goal_dir = np.array([math.cos(theta),0,math.sin(theta)])
         self.goal_pos = self.init_pos+self.radius*goal_dir
-        has_sol,start_pts = np_util.generate_traj(self.body_xyz,self.goal_pos,dist,visualize=False)
+        has_sol,start_pts = np_util.generate_traj(self.init_pos,self.goal_pos,dist,visualize=False)
         self.path_start = start_pts[np.random.choice(start_pts.shape[0]),:]
-        self.path_start =np.array([self.path_start[0],self.body_xyz[1],self.path_start[1]])
+        self.path_start =np.array([self.path_start[0],self.init_pos[1],self.path_start[1]])
         self.path_dir = self.goal_pos-self.path_start
         self.path_dir = self.path_dir/np.linalg.norm(self.path_dir)
         self.path_start = self.goal_pos-self.path_dir*self.radius
     
     def _reset_task(self):
+
         theta = self.np_random.uniform(self.theta[0],self.theta[1])
         dist = self.np_random.uniform(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
 #         dist = self.np_random.normal(self.dist_distri_param[0],self.dist_distri_param[1],size=1)[0]
@@ -145,10 +150,7 @@ class FishEnvBasic(coupled_env):
         self.resetDynamics()
         self._reset_task()
         self._update_state()
-        self.init_pos = self.body_xyz
         self.trajectory_points=[]
-        
-        
         self.dist_potential = self.calc__dist_potential()
         self.close_potential = self.calc__close_potential()
         
