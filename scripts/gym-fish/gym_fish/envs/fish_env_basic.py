@@ -6,7 +6,6 @@ import gym_fish.envs.py_util.np_util as np_util
 import numpy as np
 import os
 import math
-import pathlib
 
 def get_full_path(asset_path):
     if asset_path.startswith("/"):
@@ -55,7 +54,7 @@ class FishEnvBasic(coupled_env):
         self.training = True
         # use parent's init function to init default env data, like action space and observation space, also init dynamics
         super().__init__(fluid_json, rigid_json, gpuId, couple_mode=couple_mode)
-        self.simulator.fluid_solver.set_savefolder(data_folder.resolve())
+        self.simulator.fluid_solver.set_savefolder(data_folder+'/')
 
 
     def _step(self, action) -> None:
@@ -162,4 +161,41 @@ class FishEnvBasic(coupled_env):
         self.close_potential = self.calc__close_potential()
         
         return self._get_obs()
-    
+
+    # def plot3d(self, title=None, fig_name=None, elev=45, azim=45):
+    #     path_points = np.array([
+    #         self.path_start * (1.0 - t) + self.goal_pos * t for t in np.arange(0.0, 1.0, 1.0 / 100)
+    #
+    #     ])
+    #     trajectory_points = self.trajectory_points
+    #     ax = plt.figure().add_subplot(111, projection='3d')
+    #     X = path_points[:, 0]
+    #     Y = path_points[:, 1]
+    #     Z = path_points[:, 2]
+    #     ax.set_xlabel('x')
+    #     ax.set_ylabel('z')
+    #     ax.set_zlabel('y')
+    #     max_range = np.array([X.max() - X.min(), Y.max() - Y.min(), Z.max() - Z.min()]).max() / 2.0
+    #     mid_x = (X.max() + X.min()) * 0.5
+    #     mid_y = (Y.max() + Y.min()) * 0.5
+    #     mid_z = (Z.max() + Z.min()) * 0.5
+    #     ax.set_xlim(mid_x - max_range, mid_x + max_range)
+    #     ax.set_ylim(mid_z - max_range, mid_z + max_range)
+    #     ax.set_zlim(mid_y - max_range, mid_y + max_range)
+    #     #         if path_points!=None:
+    #     #             ax.scatter3D(xs=[x.data[0] for x in path_points], zs=[x.data[1] for x in path_points], ys=[x.data[2] for x in path_points],c='g')
+    #     ax.scatter3D(xs=X, zs=Y, ys=Z, c='g')
+    #     if trajectory_points != None:
+    #         ax.scatter3D(xs=[x[0] for x in trajectory_points],
+    #                      zs=[x[1] for x in trajectory_points],
+    #                      ys=[x[2] for x in trajectory_points],
+    #                      c=[[0, 0, i / len(trajectory_points)] for i in range(len(trajectory_points))])
+    #     ax.view_init(elev=elev, azim=azim)  # 改变绘制图像的视角,即相机的位置,azim沿着z轴旋转，elev沿着y轴
+    #     ax.set_xlabel('x')
+    #     ax.set_ylabel('z')
+    #     ax.set_zlabel('y')
+    #     if title != None:
+    #         ax.set_title(title)
+    #     if fig_name != None:
+    #         plt.savefig(fig_name)
+    #     plt.show()
