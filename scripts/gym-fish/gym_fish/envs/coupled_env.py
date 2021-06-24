@@ -65,8 +65,9 @@ class coupled_env(gym.Env):
             os.makedirs(data_folder)
         self.data_folder = data_folder + '/'
         print(self.data_folder)
-        rigid_json,fluid_json = decode_env_json(env_json=env_json)
+        #rigid_json,fluid_json = decode_env_json(env_json=env_json)
         rigid_json,fluid_json,gl_renderer = decode_env_json(env_json=env_json)
+        self.gl_renderer= gl_renderer
         # here init dynamics ,action_space and observation space
         self.fluid_json =fluid_json
         self.rigid_json = rigid_json
@@ -74,9 +75,6 @@ class coupled_env(gym.Env):
         self.couple_mode  = couple_mode
         self.resetDynamics()
         
-        self.gl_renderer= gl_renderer
-        for i in range(self.simulator.rigid_solver.agent_num):
-            self.gl_renderer.add_mesh(self.simulator.rigid_solver.get_agent(i))
             
         self.seed()
         _obs = self.reset()
@@ -98,6 +96,10 @@ class coupled_env(gym.Env):
         fluid_solv = fluid_solver(fluid_param = fluid_param,gpuId=self.gpuId,couple_mode=self.couple_mode)
         self.simulator = coupled_sim(fluid_solv,rigid_solv)
         self.simulator.fluid_solver.set_savefolder(self.data_folder)
+        
+        self.gl_renderer.meshes.clear()
+        for i in range(self.simulator.rigid_solver.agent_num):
+            self.gl_renderer.add_mesh(self.simulator.rigid_solver.get_agent(i))
     
     def _get_action_space(self):
         low = self.simulator.rigid_solver.get_action_lower_limits()
