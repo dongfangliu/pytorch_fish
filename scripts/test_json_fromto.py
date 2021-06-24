@@ -1,8 +1,6 @@
 
-from scripts.test.fish_env import *
+from test import *
 import py_util
-from matplotlib import pyplot as plt
-
 
 # Fluid
 # param = fl.simParam()

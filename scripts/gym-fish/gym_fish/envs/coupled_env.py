@@ -11,7 +11,7 @@ from .entities.fluid_solver import fluid_solver
 from .entities.rigid_solver import rigid_solver
 from .py_util import flare_util as fl_util
 from .lib import pyflare as fl
-
+#
 from gym_fish.envs.visualization.renderer import  renderer
 from gym_fish.envs.visualization.camera import camera
 
@@ -47,6 +47,7 @@ def decode_env_json(env_json:str):
         fluid_json_name = j["fluid_json"]
         rigid_json = os.path.abspath(os.path.join(env_path_folder,rigid_json_name))
         fluid_json = os.path.abspath(os.path.join(env_path_folder,fluid_json_name))
+        # return rigid_json,fluid_json
         cam =camera()
         cam.__dict__ = j["camera"]
         gl_renderer = renderer(camera=cam)
@@ -56,7 +57,15 @@ class coupled_env(gym.Env):
     def __init__(self,data_folder:str,env_json:str,gpuId:int,couple_mode:fl.COUPLE_MODE =fl.COUPLE_MODE.TWO_WAY) -> None:
         super().__init__()
 
-
+        if data_folder.startswith("/"):
+            data_folder = os.path.abspath(data_folder)
+        else:
+            data_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), data_folder))
+        if not os.path.exists(data_folder):
+            os.makedirs(data_folder)
+        self.data_folder = data_folder + '/'
+        print(self.data_folder)
+        rigid_json,fluid_json = decode_env_json(env_json=env_json)
         rigid_json,fluid_json,gl_renderer = decode_env_json(env_json=env_json)
         # here init dynamics ,action_space and observation space
         self.fluid_json =fluid_json
@@ -73,14 +82,6 @@ class coupled_env(gym.Env):
         _obs = self.reset()
         self.action_space = self._get_action_space()
         self.observation_space = convert_observation_to_space(_obs)
-        
-        if data_folder.startswith("/"):
-            data_folder = os.path.abspath(data_folder)
-        else:
-            data_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), data_folder))
-        if not os.path.exists(data_folder):
-            os.makedirs(data_folder)
-        self.simulator.fluid_solver.set_savefolder(data_folder+'/')
 
     def render(self, mode='human'):
         img = self.gl_renderer.render()
@@ -96,6 +97,7 @@ class coupled_env(gym.Env):
         rigid_solv = rigid_solver(rigids_data)
         fluid_solv = fluid_solver(fluid_param = fluid_param,gpuId=self.gpuId,couple_mode=self.couple_mode)
         self.simulator = coupled_sim(fluid_solv,rigid_solv)
+        self.simulator.fluid_solver.set_savefolder(self.data_folder)
     
     def _get_action_space(self):
         low = self.simulator.rigid_solver.get_action_lower_limits()
