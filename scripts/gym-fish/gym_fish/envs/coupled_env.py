@@ -56,12 +56,7 @@ class coupled_env(gym.Env):
     def __init__(self,data_folder:str,env_json:str,gpuId:int,couple_mode:fl.COUPLE_MODE =fl.COUPLE_MODE.TWO_WAY) -> None:
         super().__init__()
 
-        if data_folder.startswith("/"):
-            data_folder = os.path.abspath(data_folder)
-        else:
-            data_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), data_folder))
-        if not os.path.exists(data_folder):
-            os.makedirs(data_folder)
+
         rigid_json,fluid_json,gl_renderer = decode_env_json(env_json=env_json)
         # here init dynamics ,action_space and observation space
         self.fluid_json =fluid_json
@@ -69,13 +64,23 @@ class coupled_env(gym.Env):
         self.gpuId =  gpuId
         self.couple_mode  = couple_mode
         self.resetDynamics()
+        
         self.gl_renderer= gl_renderer
         for i in range(self.simulator.rigid_solver.agent_num):
             self.gl_renderer.add_mesh(self.simulator.rigid_solver.get_agent(i))
+            
         self.seed()
         _obs = self.reset()
         self.action_space = self._get_action_space()
         self.observation_space = convert_observation_to_space(_obs)
+        
+        if data_folder.startswith("/"):
+            data_folder = os.path.abspath(data_folder)
+        else:
+            data_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), data_folder))
+        if not os.path.exists(data_folder):
+            os.makedirs(data_folder)
+        self.simulator.fluid_solver.set_savefolder(data_folder+'/')
 
     def render(self, mode='human'):
         img = self.gl_renderer.render()
