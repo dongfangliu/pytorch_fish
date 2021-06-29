@@ -30,7 +30,7 @@ class camera:
             self.z_near,
             self.z_far)
     @property
-    def mvp(self):
+    def viewProejction(self):
         self.build_look_at()
         self.build_projection()
         return self.mat_projection * self.mat_lookat
