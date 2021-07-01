@@ -5,10 +5,10 @@ class camera:
     def __init__(self,
     z_near=0.1,
     z_far=1000,fov=60,
-    center = (0,0,0),
-    up = (0,1,0),
-    target = (0,0,0),
-    window_size:Tuple[float]=(1280,720)
+    center = [0,0,0],
+    up = [0,1,0],
+    target = [0,0,0],
+    window_size:Tuple[float]=(1920,1080)
     ) -> None:
         self.z_near = z_near
         self.z_far = z_far
