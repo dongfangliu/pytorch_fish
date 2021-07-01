@@ -5,6 +5,7 @@ import ctypes
 import math
 import os.path
 import sys
+import pathlib
 
 import PySide2.QtWidgets
 import numpy as np
@@ -595,7 +596,7 @@ class MainWindow(QtWidgets.QMainWindow):
                                      self.glWidget.set_cam_z)
         x_slider.setText(str(0))
         y_slider.setText(str(0))
-        z_slider.setText(str(0.3))
+        z_slider.setText(str(1))
         cam_widget= QtWidgets.QWidget()
         form_layout = QtWidgets.QFormLayout()
         self.save_btn =  QtWidgets.QPushButton("Save")
@@ -621,13 +622,11 @@ class MainWindow(QtWidgets.QMainWindow):
         return line
 
 
-import pathlib
 if __name__ == '__main__':
     if len(sys.argv)>=2:
         file_path = str(sys.argv[1])
     else:
-        # default_file = str(pathlib.Path(__file__+'/../assets/agents/flatfish.json').resolve())
-        default_file = str(pathlib.Path(__file__+'/../assets/fbx_models/eel.fbx').resolve())
+        default_file = str(pathlib.Path(__file__+'/../assets/agents/eel.json').resolve())
         print("no json file input, use default :" +default_file)
         file_path =default_file
     if os.path.isfile(file_path):
