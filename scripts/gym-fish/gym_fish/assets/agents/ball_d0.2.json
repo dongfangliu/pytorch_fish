@@ -19,13 +19,7 @@
     "joints": {
         "joint1": {
             "actuator": "passive",
-            "axis": [
-                [
-                    0.0,
-                    1.0,
-                    0.0
-                ]
-            ],
+            "axis": null,
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
@@ -57,13 +51,7 @@
         },
         "joint2": {
             "actuator": "passive",
-            "axis": [
-                [
-                    0.0,
-                    1.0,
-                    0.0
-                ]
-            ],
+            "axis": null,
             "dynamics": {
                 "damping": 0.0,
                 "friction": 0.0
@@ -97,12 +85,12 @@
     "links": {
         "[link]joint1::joint2": {
             "isIntermediate": false,
-            "mass": 1.0,
+            "mass": 10.0,
             "name": "[link]joint1::joint2",
             "size": [
+                0.20000000298023224,
                 0.2,
-                0.02,
-                0.02
+                0.2
             ]
         }
     },
